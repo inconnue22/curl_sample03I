@@ -526,34 +526,34 @@ AWK = gawk
 BLANK_AT_MAKETIME = 
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Werror-implicit-function-declaration -g -O2 -pedantic -Wall -W -Wpointer-arith -Wwrite-strings -Wunused -Wshadow -Winline -Wnested-externs -Wmissing-declarations -Wmissing-prototypes -Wno-long-long -Wbad-function-cast -Wfloat-equal -Wno-multichar -Wsign-compare -Wundef -Wno-format-nonliteral -Wendif-labels -Wstrict-prototypes -Wdeclaration-after-statement -Wold-style-definition -Wstrict-aliasing=3 -Wcast-align -Wtype-limits -Wold-style-declaration -Wmissing-parameter-type -Wempty-body -Wclobbered -Wignored-qualifiers -Wconversion -Wno-sign-conversion -Wvla -ftree-vrp -Wdouble-promotion -Wformat=2 -Warray-bounds=2 -Wshift-negative-value -Wshift-overflow=2 -Wnull-dereference -fdelete-null-pointer-checks -Wduplicated-cond -Wunused-const-variable -Wduplicated-branches -Wrestrict -Walloc-zero -Wformat-overflow=2 -Wformat-truncation=2 -Wimplicit-fallthrough=4 -Wno-system-headers -Wenum-conversion
-CFLAG_CURL_SYMBOL_HIDING = 
-CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-largefile' '--disable-silent-rules' '--enable-debug' '--enable-optimize' '--enable-curldebug' '--disable-hidden-symbols' '--disable-ares' '--enable-http' '--enable-ftp' '--disable-file' '--enable-ldap' '--disable-ldaps' '--enable-telnet' '--disable-tftp' '--enable-smb' '--enable-smtp' '--enable-gopher' '--enable-mqtt' '--enable-libcurl-option' '--enable-ipv6' '--disable-openssl-auto-load-config' '--enable-versioned-symbols' '--disable-threaded-resolver' '--enable-pthreads' '--enable-verbose' '--enable-sspi' '--enable-crypto-auth' '--enable-tls-srp' '--enable-unix-sockets' '--enable-socketpair' '--disable-http-auth' '--disable-doh' '--disable-mime' '--disable-dateparse' '--disable-netrc' '--disable-progress-meter' '--disable-dnsshuffle' '--disable-get-easy-options' '--enable-alt-svc'"
+CFLAGS = -Werror-implicit-function-declaration -g -O2 -Wno-system-headers -Wenum-conversion -pthread
+CFLAG_CURL_SYMBOL_HIDING = -fvisibility=hidden
+CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-silent-rules' '--enable-debug' '--enable-optimize' '--disable-warnings' '--disable-curldebug' '--enable-symbol-hiding' '--disable-hidden-symbols' '--disable-ares' '--enable-dependency-tracking' '--enable-http' '--enable-ftp' '--enable-file' '--disable-ldap' '--disable-ldaps' '--enable-proxy' '--disable-dict' '--disable-telnet' '--enable-tftp' '--enable-pop3' '--disable-imap' '--enable-smtp' '--disable-mqtt' '--enable-manual' '--disable-libcurl-option' '--enable-ipv6' '--enable-openssl-auto-load-config' '--disable-versioned-symbols' '--enable-verbose' '--disable-sspi' '--enable-crypto-auth' '--disable-ntlm-wb' '--disable-tls-srp' '--disable-unix-sockets' '--disable-cookies' '--disable-socketpair' '--disable-doh' '--disable-dateparse' '--enable-netrc' '--enable-dnsshuffle' '--disable-get-easy-options' '--disable-hsts' '--enable-hidden-symbols' '--enable-libgcc'"
 CPP = gcc -E
 CPPFLAGS = 
 CPPFLAG_CURL_STATICLIB = -DCURL_STATICLIB
 CURLVERSION = 7.78.0-DEV
 CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"
 CURL_CFLAG_EXTRAS = 
-CURL_DISABLE_DICT = 
-CURL_DISABLE_FILE = 1
+CURL_DISABLE_DICT = 1
+CURL_DISABLE_FILE = 
 CURL_DISABLE_FTP = 
 CURL_DISABLE_GOPHER = 
 CURL_DISABLE_HTTP = 
-CURL_DISABLE_IMAP = 
-CURL_DISABLE_LDAP = 
+CURL_DISABLE_IMAP = 1
+CURL_DISABLE_LDAP = 1
 CURL_DISABLE_LDAPS = 1
-CURL_DISABLE_MQTT = 
+CURL_DISABLE_MQTT = 1
 CURL_DISABLE_POP3 = 
 CURL_DISABLE_PROXY = 
 CURL_DISABLE_RTSP = 
 CURL_DISABLE_SMB = 
 CURL_DISABLE_SMTP = 
-CURL_DISABLE_TELNET = 
-CURL_DISABLE_TFTP = 1
-CURL_LT_SHLIB_VERSIONED_FLAVOUR = OPENSSL_
-CURL_NETWORK_AND_TIME_LIBS = 
-CURL_NETWORK_LIBS = 
+CURL_DISABLE_TELNET = 1
+CURL_DISABLE_TFTP = 
+CURL_LT_SHLIB_VERSIONED_FLAVOUR = 
+CURL_NETWORK_AND_TIME_LIBS = -lgcc
+CURL_NETWORK_LIBS = -lgcc
 CURL_WITH_MULTI_SSL = 
 CYGPATH_W = echo
 DEFAULT_SSL_BACKEND = no
@@ -590,8 +590,8 @@ IPV6_ENABLED = 1
 LCOV = 
 LD = /usr/bin/ld -m elf_x86_64
 LDFLAGS = 
-LIBCURL_LIBS = -lssl -lcrypto -lssl -lcrypto -lldap -llber -lzstd -lz
-LIBCURL_NO_SHARED = -lssl -lcrypto -lssl -lcrypto  -lldap -llber -lzstd  -lz 
+LIBCURL_LIBS = -lssl -lcrypto -lssl -lcrypto -lzstd -lz -lgcc -pthread
+LIBCURL_NO_SHARED = -lssl -lcrypto -lssl -lcrypto  -lzstd  -lz -lgcc  -pthread
 LIBOBJS = 
 
 # Prevent LIBS from being used for all link targets
@@ -637,8 +637,8 @@ SSL_BACKENDS = OpenSSL
 SSL_ENABLED = 1
 SSL_LIBS = -lssl -lcrypto 
 STRIP = strip
-SUPPORT_FEATURES = HSTS HTTPS-proxy IPv6 Largefile NTLM NTLM_WB SSL TLS-SRP UnixSockets alt-svc libz zstd
-SUPPORT_PROTOCOLS = DICT FTP FTPS GOPHER GOPHERS HTTP HTTPS IMAP IMAPS LDAP MQTT POP3 POP3S RTSP SMB SMBS SMTP SMTPS TELNET
+SUPPORT_FEATURES = AsynchDNS HSTS HTTPS-proxy IPv6 Largefile NTLM SSL alt-svc libz zstd
+SUPPORT_PROTOCOLS = FILE FTP FTPS GOPHER GOPHERS HTTP HTTPS POP3 POP3S RTSP SMB SMBS SMTP SMTPS TFTP
 USE_ARES = 
 USE_BEARSSL = 
 USE_GNUTLS = 
@@ -654,12 +654,12 @@ USE_NGTCP2 =
 USE_NGTCP2_CRYPTO_GNUTLS = 
 USE_NGTCP2_CRYPTO_OPENSSL = 
 USE_NSS = 
-USE_OPENLDAP = 1
+USE_OPENLDAP = 
 USE_QUICHE = 
 USE_RUSTLS = 
 USE_SCHANNEL = 
 USE_SECTRANSP = 
-USE_UNIX_SOCKETS = 1
+USE_UNIX_SOCKETS = 
 USE_WIN32_CRYPTO = 
 USE_WIN32_LARGE_FILES = 
 USE_WIN32_SMALL_FILES = 
@@ -802,56 +802,56 @@ UTIL = \
 getpart_SOURCES = $(CURLX_SRCS) $(CURLX_HDRS) $(USEFUL) \
  testpart.c
 
-getpart_LDADD = 
+getpart_LDADD = -lgcc
 getpart_CFLAGS = $(AM_CFLAGS)
 resolve_SOURCES = $(CURLX_SRCS) $(CURLX_HDRS) $(USEFUL) $(UTIL) \
  resolve.c
 
-resolve_LDADD = 
+resolve_LDADD = -lgcc
 resolve_CFLAGS = $(AM_CFLAGS)
 rtspd_SOURCES = $(CURLX_SRCS) $(CURLX_HDRS) $(USEFUL) $(UTIL) \
  server_sockaddr.h \
  rtspd.c
 
-rtspd_LDADD = 
+rtspd_LDADD = -lgcc
 rtspd_CFLAGS = $(AM_CFLAGS)
 sockfilt_SOURCES = $(CURLX_SRCS) $(CURLX_HDRS) $(USEFUL) $(UTIL) \
  server_sockaddr.h \
  sockfilt.c \
  ../../lib/inet_pton.c
 
-sockfilt_LDADD = 
+sockfilt_LDADD = -lgcc
 sockfilt_CFLAGS = $(AM_CFLAGS)
 socksd_SOURCES = $(CURLX_SRCS) $(CURLX_HDRS) $(USEFUL) $(UTIL) \
  server_sockaddr.h socksd.c \
  ../../lib/inet_pton.c
 
-socksd_LDADD = 
+socksd_LDADD = -lgcc
 socksd_CFLAGS = $(AM_CFLAGS)
 mqttd_SOURCES = $(CURLX_SRCS) $(CURLX_HDRS) $(USEFUL) $(UTIL) \
  server_sockaddr.h mqttd.c \
  ../../lib/inet_pton.c
 
-mqttd_LDADD = 
+mqttd_LDADD = -lgcc
 mqttd_CFLAGS = $(AM_CFLAGS)
 sws_SOURCES = $(CURLX_SRCS) $(CURLX_HDRS) $(USEFUL) $(UTIL) \
  server_sockaddr.h \
  sws.c \
  ../../lib/inet_pton.c
 
-sws_LDADD = 
+sws_LDADD = -lgcc
 sws_CFLAGS = $(AM_CFLAGS)
 tftpd_SOURCES = $(CURLX_SRCS) $(CURLX_HDRS) $(USEFUL) $(UTIL) \
  server_sockaddr.h \
  tftpd.c \
  tftp.h
 
-tftpd_LDADD = 
+tftpd_LDADD = -lgcc
 tftpd_CFLAGS = $(AM_CFLAGS)
 fake_ntlm_SOURCES = $(CURLX_SRCS) $(CURLX_HDRS) $(USEFUL) $(UTIL) \
  fake_ntlm.c
 
-fake_ntlm_LDADD = 
+fake_ntlm_LDADD = -lgcc
 fake_ntlm_CFLAGS = $(AM_CFLAGS)
 disabled_SOURCES = disabled.c
 
@@ -3071,7 +3071,7 @@ distdir-am: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-#all-local:
+all-local:
 all-am: Makefile $(PROGRAMS) all-local
 installdirs:
 install: install-am
@@ -34416,7 +34416,7 @@ checksrc:
 	$(CHECKSRC)/usr/bin/perl $(top_srcdir)/lib/checksrc.pl $(srcdir)/*.[ch]
 
 # for debug builds, we scan the sources on all regular make invokes
-all-local: checksrc
+#all-local: checksrc
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
