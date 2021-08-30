@@ -453,9 +453,9 @@ CC = gcc
 CCDEPMODE = depmode=none
 
 # This might hold -Werror
-CFLAGS = -Werror-implicit-function-declaration -O0 -pedantic -Wall -W -Wpointer-arith -Wwrite-strings -Wunused -Wshadow -Winline -Wnested-externs -Wmissing-declarations -Wmissing-prototypes -Wno-long-long -Wbad-function-cast -Wfloat-equal -Wno-multichar -Wsign-compare -Wundef -Wno-format-nonliteral -Wendif-labels -Wstrict-prototypes -Wdeclaration-after-statement -Wold-style-definition -Wstrict-aliasing=3 -Wcast-align -Wtype-limits -Wold-style-declaration -Wmissing-parameter-type -Wempty-body -Wclobbered -Wignored-qualifiers -Wconversion -Wno-sign-conversion -Wvla -ftree-vrp -Wdouble-promotion -Wformat=2 -Warray-bounds=2 -Wshift-negative-value -Wshift-overflow=2 -Wnull-dereference -fdelete-null-pointer-checks -Wduplicated-cond -Wunused-const-variable -Wduplicated-branches -Wrestrict -Walloc-zero -Wformat-overflow=2 -Wformat-truncation=2 -Wimplicit-fallthrough=4 -Wno-system-headers -Wenum-conversion 
+CFLAGS = -Werror-implicit-function-declaration -O2 -pedantic -Wall -W -Wpointer-arith -Wwrite-strings -Wunused -Wshadow -Winline -Wnested-externs -Wmissing-declarations -Wmissing-prototypes -Wno-long-long -Wbad-function-cast -Wfloat-equal -Wno-multichar -Wsign-compare -Wundef -Wno-format-nonliteral -Wendif-labels -Wstrict-prototypes -Wdeclaration-after-statement -Wold-style-definition -Wstrict-aliasing=3 -Wcast-align -Wtype-limits -Wold-style-declaration -Wmissing-parameter-type -Wempty-body -Wclobbered -Wignored-qualifiers -Wconversion -Wno-sign-conversion -Wvla -ftree-vrp -Wdouble-promotion -Wformat=2 -Warray-bounds=2 -Wshift-negative-value -Wshift-overflow=2 -Wnull-dereference -fdelete-null-pointer-checks -Wduplicated-cond -Wunused-const-variable -Wduplicated-branches -Wrestrict -Walloc-zero -Wformat-overflow=2 -Wformat-truncation=2 -Wimplicit-fallthrough=4 -Wno-system-headers -Wenum-conversion 
 CFLAG_CURL_SYMBOL_HIDING = -fvisibility=hidden
-CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-debug' '--disable-optimize' '--enable-warnings' '--disable-curldebug' '--disable-symbol-hiding' '--enable-maintainer-mode' '--disable-dependency-tracking' '--enable-http' '--enable-ftp' '--disable-file' '--enable-ldap' '--disable-rtsp' '--enable-proxy' '--disable-dict' '--disable-tftp' '--enable-imap' '--disable-smb' '--enable-smtp' '--disable-gopher' '--disable-manual' '--disable-libcurl-option' '--disable-versioned-symbols' '--disable-threaded-resolver' '--disable-verbose' '--disable-crypto-auth' '--enable-ntlm-wb' '--enable-cookies' '--enable-socketpair' '--disable-http-auth' '--enable-doh' '--disable-dateparse' '--disable-netrc' '--enable-progress-meter' '--enable-get-easy-options' '--enable-alt-svc' '--enable-hsts' '--enable-hidden-symbols' '--enable-static' '--enable-libgcc'"
+CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--enable-silent-rules' '--enable-warnings' '--disable-curldebug' '--enable-symbol-hiding' '--enable-maintainer-mode' '--disable-ares' '--disable-dependency-tracking' '--enable-http' '--disable-ftp' '--enable-file' '--enable-ldap' '--disable-ldaps' '--disable-dict' '--disable-tftp' '--enable-pop3' '--disable-imap' '--disable-smb' '--disable-smtp' '--disable-mqtt' '--enable-manual' '--disable-libcurl-option' '--disable-openssl-auto-load-config' '--enable-versioned-symbols' '--disable-threaded-resolver' '--enable-pthreads' '--disable-verbose' '--disable-sspi' '--disable-crypto-auth' '--disable-ntlm-wb' '--disable-tls-srp' '--enable-unix-sockets' '--enable-cookies' '--disable-socketpair' '--disable-http-auth' '--enable-mime' '--enable-dateparse' '--enable-netrc' '--disable-progress-meter' '--enable-dnsshuffle' '--disable-hsts' '--enable-hidden-symbols' '--enable-libgcc'"
 CPP = gcc -E
 CPPFLAGS = 
 CPPFLAG_CURL_STATICLIB = -DCURL_STATICLIB
@@ -463,22 +463,22 @@ CURLVERSION = 7.78.0-DEV
 CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"
 CURL_CFLAG_EXTRAS = 
 CURL_DISABLE_DICT = 1
-CURL_DISABLE_FILE = 1
-CURL_DISABLE_FTP = 
-CURL_DISABLE_GOPHER = 1
+CURL_DISABLE_FILE = 
+CURL_DISABLE_FTP = 1
+CURL_DISABLE_GOPHER = 
 CURL_DISABLE_HTTP = 
-CURL_DISABLE_IMAP = 
+CURL_DISABLE_IMAP = 1
 CURL_DISABLE_LDAP = 
-CURL_DISABLE_LDAPS = 
-CURL_DISABLE_MQTT = 
+CURL_DISABLE_LDAPS = 1
+CURL_DISABLE_MQTT = 1
 CURL_DISABLE_POP3 = 
 CURL_DISABLE_PROXY = 
-CURL_DISABLE_RTSP = 1
+CURL_DISABLE_RTSP = 
 CURL_DISABLE_SMB = 1
-CURL_DISABLE_SMTP = 
+CURL_DISABLE_SMTP = 1
 CURL_DISABLE_TELNET = 
 CURL_DISABLE_TFTP = 1
-CURL_LT_SHLIB_VERSIONED_FLAVOUR = 
+CURL_LT_SHLIB_VERSIONED_FLAVOUR = OPENSSL_
 CURL_NETWORK_AND_TIME_LIBS = -lgcc
 CURL_NETWORK_LIBS = -lgcc
 CURL_WITH_MULTI_SSL = 
@@ -502,7 +502,7 @@ GCOV =
 GREP = /usr/bin/grep
 HAVE_BROTLI = 
 HAVE_GNUTLS_SRP = 
-HAVE_LDAP_SSL = 1
+HAVE_LDAP_SSL = 
 HAVE_LIBZ = 1
 HAVE_OPENSSL_SRP = 1
 HAVE_PROTO_BSDSOCKET_H = 
@@ -566,8 +566,8 @@ SSL_BACKENDS = OpenSSL
 SSL_ENABLED = 1
 SSL_LIBS = -lssl -lcrypto 
 STRIP = strip
-SUPPORT_FEATURES = HSTS HTTPS-proxy IPv6 Largefile SSL TLS-SRP UnixSockets alt-svc libz zstd
-SUPPORT_PROTOCOLS = FTP FTPS HTTP HTTPS IMAP IMAPS LDAP LDAPS MQTT POP3 POP3S SMTP SMTPS TELNET
+SUPPORT_FEATURES = HSTS HTTPS-proxy IPv6 Largefile SSL UnixSockets alt-svc libz zstd
+SUPPORT_PROTOCOLS = FILE GOPHER GOPHERS HTTP HTTPS LDAP POP3 POP3S RTSP TELNET
 USE_ARES = 
 USE_BEARSSL = 
 USE_GNUTLS = 
@@ -1928,28 +1928,28 @@ uninstall-am: uninstall-binPROGRAMS
 
 # Here are the stuff to create a built-in manual
 
-#$(MANPAGE):
-#	cd $(top_builddir)/docs && $(MAKE)
+$(MANPAGE):
+	cd $(top_builddir)/docs && $(MAKE)
 
 # This generates the tool_hugehelp.c file in both uncompressed and
 # compressed formats.
-#$(HUGE): $(MANPAGE) $(MKHELP)
-#	$(HUGECMD) (echo '#include "tool_setup.h"' > $(HUGE);   \
-#	echo '#ifndef HAVE_LIBZ' >> $(HUGE);                    \
-#	$(NROFF) $(MANPAGE) | $(PERL) $(MKHELP) >> $(HUGE);     \
-#	echo '#else' >> $(HUGE);                                \
-#	$(NROFF) $(MANPAGE) | $(PERL) $(MKHELP) -c >> $(HUGE);  \
-#	echo '#endif /* HAVE_LIBZ */' >> $(HUGE) )
+$(HUGE): $(MANPAGE) $(MKHELP)
+	$(HUGECMD) (echo '#include "tool_setup.h"' > $(HUGE);   \
+	echo '#ifndef HAVE_LIBZ' >> $(HUGE);                    \
+	$(NROFF) $(MANPAGE) | $(PERL) $(MKHELP) >> $(HUGE);     \
+	echo '#else' >> $(HUGE);                                \
+	$(NROFF) $(MANPAGE) | $(PERL) $(MKHELP) -c >> $(HUGE);  \
+	echo '#endif /* HAVE_LIBZ */' >> $(HUGE) )
 # This generates the tool_hugehelp.c file uncompressed only
-##$(HUGE): $(MANPAGE) $(MKHELP)
-##	$(HUGECMD)(echo '#include "tool_setup.h"' > $(HUGE);    \
-##	$(NROFF) $(MANPAGE) | $(PERL) $(MKHELP) >> $(HUGE) )
+#$(HUGE): $(MANPAGE) $(MKHELP)
+#	$(HUGECMD)(echo '#include "tool_setup.h"' > $(HUGE);    \
+#	$(NROFF) $(MANPAGE) | $(PERL) $(MKHELP) >> $(HUGE) )
 
 # built-in manual has been disabled, make a blank file
-$(HUGE):
-	$(HUGECMD)(echo "/* built-in manual is disabled, blank function */" > $(HUGE); \
-	echo '#include "tool_hugehelp.h"' >> $(HUGE); \
-	echo "void hugehelp(void) {}" >>$(HUGE) )
+#$(HUGE):
+#	$(HUGECMD)(echo "/* built-in manual is disabled, blank function */" > $(HUGE); \
+#	echo '#include "tool_hugehelp.h"' >> $(HUGE); \
+#	echo "void hugehelp(void) {}" >>$(HUGE) )
 
 # ignore tool_hugehelp.c since it is generated source code and it plays
 # by slightly different rules!
