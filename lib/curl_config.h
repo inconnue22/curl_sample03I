@@ -17,7 +17,7 @@
 /* #undef CURL_DEFAULT_SSL_BACKEND */
 
 /* disable alt-svc */
-/* #undef CURL_DISABLE_ALTSVC */
+#define CURL_DISABLE_ALTSVC 1
 
 /* to disable cookies support */
 /* #undef CURL_DISABLE_COOKIES */
@@ -32,7 +32,7 @@
 /* #undef CURL_DISABLE_DOH */
 
 /* to disable FILE */
-#define CURL_DISABLE_FILE 1
+/* #undef CURL_DISABLE_FILE */
 
 /* to disable FTP */
 /* #undef CURL_DISABLE_FTP */
@@ -41,7 +41,7 @@
 /* #undef CURL_DISABLE_GETOPTIONS */
 
 /* to disable Gopher */
-/* #undef CURL_DISABLE_GOPHER */
+#define CURL_DISABLE_GOPHER 1
 
 /* disable alt-svc */
 /* #undef CURL_DISABLE_HSTS */
@@ -50,7 +50,7 @@
 /* #undef CURL_DISABLE_HTTP */
 
 /* disable HTTP authentication */
-#define CURL_DISABLE_HTTP_AUTH 1
+/* #undef CURL_DISABLE_HTTP_AUTH */
 
 /* to disable IMAP */
 /* #undef CURL_DISABLE_IMAP */
@@ -59,16 +59,16 @@
 /* #undef CURL_DISABLE_LDAP */
 
 /* to disable LDAPS */
-#define CURL_DISABLE_LDAPS 1
+/* #undef CURL_DISABLE_LDAPS */
 
 /* to disable --libcurl C code generation option */
-#define CURL_DISABLE_LIBCURL_OPTION 1
+/* #undef CURL_DISABLE_LIBCURL_OPTION */
 
 /* disable mime API */
 #define CURL_DISABLE_MIME 1
 
 /* to disable MQTT */
-#define CURL_DISABLE_MQTT 1
+/* #undef CURL_DISABLE_MQTT */
 
 /* disable netrc parsing */
 /* #undef CURL_DISABLE_NETRC */
@@ -77,7 +77,7 @@
 /* #undef CURL_DISABLE_NTLM */
 
 /* if the OpenSSL configuration won't be loaded automatically */
-#define CURL_DISABLE_OPENSSL_AUTO_LOAD_CONFIG 1
+/* #undef CURL_DISABLE_OPENSSL_AUTO_LOAD_CONFIG */
 
 /* disable date parsing */
 /* #undef CURL_DISABLE_PARSEDATE */
@@ -95,16 +95,16 @@
 #define CURL_DISABLE_RTSP 1
 
 /* disable DNS shuffling */
-/* #undef CURL_DISABLE_SHUFFLE_DNS */
+#define CURL_DISABLE_SHUFFLE_DNS 1
 
 /* to disable SMB/CIFS */
-#define CURL_DISABLE_SMB 1
+/* #undef CURL_DISABLE_SMB */
 
 /* to disable SMTP */
-/* #undef CURL_DISABLE_SMTP */
+#define CURL_DISABLE_SMTP 1
 
 /* to disable socketpair support */
-/* #undef CURL_DISABLE_SOCKETPAIR */
+#define CURL_DISABLE_SOCKETPAIR 1
 
 /* to disable TELNET */
 /* #undef CURL_DISABLE_TELNET */
@@ -116,7 +116,7 @@
 #define CURL_DISABLE_VERBOSE_STRINGS 1
 
 /* Definition to make a library symbol externally visible. */
-/* #undef CURL_EXTERN_SYMBOL */
+#define CURL_EXTERN_SYMBOL __attribute__ ((__visibility__ ("default")))
 
 /* IP address type in sockaddr */
 #define CURL_SA_FAMILY_T sa_family_t
@@ -131,7 +131,7 @@
 /* #undef EGD_SOCKET */
 
 /* Define if you want to enable IPv6 support */
-/* #undef ENABLE_IPV6 */
+#define ENABLE_IPV6 1
 
 /* Define to the type of arg 2 for gethostname. */
 #define GETHOSTNAME_TYPE_ARG2 size_t
@@ -370,7 +370,7 @@
 #define HAVE_LDAP_INIT_FD 1
 
 /* Use LDAPS implementation */
-/* #undef HAVE_LDAP_SSL */
+#define HAVE_LDAP_SSL 1
 
 /* Define to 1 if you have the ldap_ssl.h header file. */
 /* #undef HAVE_LDAP_SSL_H */
@@ -596,7 +596,7 @@
 /* #undef HAVE_SIG_ATOMIC_T_VOLATILE */
 
 /* Define to 1 if struct sockaddr_in6 has the sin6_scope_id member */
-/* #undef HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID */
+#define HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID 1
 
 /* Define to 1 if you have the socket function. */
 #define HAVE_SOCKET 1
@@ -821,10 +821,10 @@
 /* #undef NEED_THREAD_SAFE */
 
 /* Define to enable NTLM delegation to winbind's ntlm_auth helper. */
-#define NTLM_WB_ENABLED 1
+/* #undef NTLM_WB_ENABLED */
 
 /* Define absolute filename for winbind's ntlm_auth helper. */
-#define NTLM_WB_FILE "/usr/bin/ntlm_auth"
+/* #undef NTLM_WB_FILE */
 
 /* cpu-machine-OS */
 #define OS "x86_64-pc-linux-gnu"
@@ -965,7 +965,7 @@
 /* #undef USE_LIBSSH2 */
 
 /* If you want to build curl with the built-in manual */
-#define USE_MANUAL 1
+/* #undef USE_MANUAL */
 
 /* if mbedTLS is enabled */
 /* #undef USE_MBEDTLS */
@@ -1019,7 +1019,7 @@
 #define USE_TLS_SRP 1
 
 /* Use Unix domain sockets */
-#define USE_UNIX_SOCKETS 1
+/* #undef USE_UNIX_SOCKETS */
 
 /* Define to 1 if you are building a Windows target with crypto API support.
    */
