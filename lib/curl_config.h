@@ -17,10 +17,10 @@
 /* #undef CURL_DEFAULT_SSL_BACKEND */
 
 /* disable alt-svc */
-#define CURL_DISABLE_ALTSVC 1
+/* #undef CURL_DISABLE_ALTSVC */
 
 /* to disable cookies support */
-#define CURL_DISABLE_COOKIES 1
+/* #undef CURL_DISABLE_COOKIES */
 
 /* to disable cryptographic authentication */
 /* #undef CURL_DISABLE_CRYPTO_AUTH */
@@ -29,10 +29,10 @@
 /* #undef CURL_DISABLE_DICT */
 
 /* disable DoH */
-#define CURL_DISABLE_DOH 1
+/* #undef CURL_DISABLE_DOH */
 
 /* to disable FILE */
-/* #undef CURL_DISABLE_FILE */
+#define CURL_DISABLE_FILE 1
 
 /* to disable FTP */
 /* #undef CURL_DISABLE_FTP */
@@ -53,7 +53,7 @@
 #define CURL_DISABLE_HTTP_AUTH 1
 
 /* to disable IMAP */
-#define CURL_DISABLE_IMAP 1
+/* #undef CURL_DISABLE_IMAP */
 
 /* to disable LDAP */
 /* #undef CURL_DISABLE_LDAP */
@@ -62,13 +62,13 @@
 #define CURL_DISABLE_LDAPS 1
 
 /* to disable --libcurl C code generation option */
-/* #undef CURL_DISABLE_LIBCURL_OPTION */
+#define CURL_DISABLE_LIBCURL_OPTION 1
 
 /* disable mime API */
 #define CURL_DISABLE_MIME 1
 
 /* to disable MQTT */
-/* #undef CURL_DISABLE_MQTT */
+#define CURL_DISABLE_MQTT 1
 
 /* disable netrc parsing */
 /* #undef CURL_DISABLE_NETRC */
@@ -77,19 +77,19 @@
 /* #undef CURL_DISABLE_NTLM */
 
 /* if the OpenSSL configuration won't be loaded automatically */
-/* #undef CURL_DISABLE_OPENSSL_AUTO_LOAD_CONFIG */
+#define CURL_DISABLE_OPENSSL_AUTO_LOAD_CONFIG 1
 
 /* disable date parsing */
 /* #undef CURL_DISABLE_PARSEDATE */
 
 /* to disable POP3 */
-/* #undef CURL_DISABLE_POP3 */
+#define CURL_DISABLE_POP3 1
 
 /* disable progress-meter */
-#define CURL_DISABLE_PROGRESS_METER 1
+/* #undef CURL_DISABLE_PROGRESS_METER */
 
 /* to disable proxies */
-/* #undef CURL_DISABLE_PROXY */
+#define CURL_DISABLE_PROXY 1
 
 /* to disable RTSP */
 #define CURL_DISABLE_RTSP 1
@@ -104,7 +104,7 @@
 /* #undef CURL_DISABLE_SMTP */
 
 /* to disable socketpair support */
-#define CURL_DISABLE_SOCKETPAIR 1
+/* #undef CURL_DISABLE_SOCKETPAIR */
 
 /* to disable TELNET */
 /* #undef CURL_DISABLE_TELNET */
@@ -113,10 +113,10 @@
 /* #undef CURL_DISABLE_TFTP */
 
 /* to disable verbose strings */
-/* #undef CURL_DISABLE_VERBOSE_STRINGS */
+#define CURL_DISABLE_VERBOSE_STRINGS 1
 
 /* Definition to make a library symbol externally visible. */
-#define CURL_EXTERN_SYMBOL __attribute__ ((__visibility__ ("default")))
+/* #undef CURL_EXTERN_SYMBOL */
 
 /* IP address type in sockaddr */
 #define CURL_SA_FAMILY_T sa_family_t
@@ -125,13 +125,13 @@
 /* #undef CURL_WITH_MULTI_SSL */
 
 /* enable debug build options */
-#define DEBUGBUILD 1
+/* #undef DEBUGBUILD */
 
 /* your Entropy Gathering Daemon socket pathname */
 /* #undef EGD_SOCKET */
 
 /* Define if you want to enable IPv6 support */
-#define ENABLE_IPV6 1
+/* #undef ENABLE_IPV6 */
 
 /* Define to the type of arg 2 for gethostname. */
 #define GETHOSTNAME_TYPE_ARG2 size_t
@@ -596,7 +596,7 @@
 /* #undef HAVE_SIG_ATOMIC_T_VOLATILE */
 
 /* Define to 1 if struct sockaddr_in6 has the sin6_scope_id member */
-#define HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID 1
+/* #undef HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID */
 
 /* Define to 1 if you have the socket function. */
 #define HAVE_SOCKET 1
