@@ -453,19 +453,19 @@ CC = gcc
 CCDEPMODE = depmode=gcc3
 
 # This might hold -Werror
-CFLAGS = -g -fprofile-arcs -ftest-coverage -Werror-implicit-function-declaration -O0 -Wno-system-headers -Wenum-conversion -pthread 
+CFLAGS = -Werror-implicit-function-declaration -O2 -Wno-system-headers -Wenum-conversion -pthread 
 CFLAG_CURL_SYMBOL_HIDING = -fvisibility=hidden
-CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-silent-rules' '--disable-debug' '--disable-optimize' '--disable-warnings' '--disable-curldebug' '--enable-maintainer-mode' '--enable-dependency-tracking' '--enable-file' '--enable-ldap' '--enable-ldaps' '--disable-rtsp' '--disable-proxy' '--enable-telnet' '--disable-pop3' '--enable-imap' '--enable-smb' '--disable-smtp' '--disable-gopher' '--enable-mqtt' '--disable-manual' '--enable-ipv6' '--enable-openssl-auto-load-config' '--enable-versioned-symbols' '--disable-verbose' '--disable-sspi' '--enable-crypto-auth' '--disable-ntlm-wb' '--disable-unix-sockets' '--enable-cookies' '--disable-socketpair' '--enable-http-auth' '--disable-mime' '--enable-dateparse' '--enable-netrc' '--disable-dnsshuffle' '--disable-alt-svc' '--disable-hsts' '--enable-code-coverage'"
+CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-largefile' '--disable-libtool-lock' '--disable-silent-rules' '--disable-debug' '--disable-warnings' '--enable-curldebug' '--disable-symbol-hiding' '--enable-maintainer-mode' '--enable-http' '--disable-ftp' '--enable-file' '--enable-ldap' '--enable-ldaps' '--enable-rtsp' '--disable-proxy' '--disable-tftp' '--disable-pop3' '--enable-imap' '--enable-smb' '--disable-smtp' '--enable-libcurl-option' '--disable-ipv6' '--disable-versioned-symbols' '--disable-verbose' '--enable-sspi' '--enable-crypto-auth' '--disable-ntlm-wb' '--enable-tls-srp' '--enable-unix-sockets' '--enable-cookies' '--disable-socketpair' '--enable-http-auth' '--enable-doh' '--disable-mime' '--disable-dateparse' '--enable-netrc' '--disable-progress-meter' '--enable-dnsshuffle' '--enable-get-easy-options' '--enable-alt-svc' '--disable-hsts' '--enable-hidden-symbols' '--enable-static' '--enable-libgcc'"
 CPP = gcc -E
-CPPFLAGS = -DNDEBUG
+CPPFLAGS = 
 CPPFLAG_CURL_STATICLIB = -DCURL_STATICLIB
 CURLVERSION = 7.78.0-DEV
 CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"
 CURL_CFLAG_EXTRAS = 
 CURL_DISABLE_DICT = 
 CURL_DISABLE_FILE = 
-CURL_DISABLE_FTP = 
-CURL_DISABLE_GOPHER = 1
+CURL_DISABLE_FTP = 1
+CURL_DISABLE_GOPHER = 
 CURL_DISABLE_HTTP = 
 CURL_DISABLE_IMAP = 
 CURL_DISABLE_LDAP = 
@@ -473,14 +473,14 @@ CURL_DISABLE_LDAPS =
 CURL_DISABLE_MQTT = 
 CURL_DISABLE_POP3 = 1
 CURL_DISABLE_PROXY = 1
-CURL_DISABLE_RTSP = 1
+CURL_DISABLE_RTSP = 
 CURL_DISABLE_SMB = 
 CURL_DISABLE_SMTP = 1
 CURL_DISABLE_TELNET = 
-CURL_DISABLE_TFTP = 
-CURL_LT_SHLIB_VERSIONED_FLAVOUR = OPENSSL_
-CURL_NETWORK_AND_TIME_LIBS = -lgcov
-CURL_NETWORK_LIBS = -lgcov
+CURL_DISABLE_TFTP = 1
+CURL_LT_SHLIB_VERSIONED_FLAVOUR = 
+CURL_NETWORK_AND_TIME_LIBS = -lgcc
+CURL_NETWORK_LIBS = -lgcc
 CURL_WITH_MULTI_SSL = 
 CYGPATH_W = echo
 DEFAULT_SSL_BACKEND = no
@@ -498,7 +498,7 @@ ENABLE_STATIC = yes
 EXEEXT = 
 FGREP = /usr/bin/grep -F
 FISH_FUNCTIONS_DIR = /usr/share/fish/vendor_completions.d
-GCOV = gcov
+GCOV = 
 GREP = /usr/bin/grep
 HAVE_BROTLI = 
 HAVE_GNUTLS_SRP = 
@@ -513,12 +513,12 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
-IPV6_ENABLED = 1
-LCOV = lcov
+IPV6_ENABLED = 
+LCOV = 
 LD = /usr/bin/ld -m elf_x86_64
 LDFLAGS = 
-LIBCURL_LIBS = -lssl -lcrypto -lssl -lcrypto -lldap -llber -lzstd -lz -lgcov -pthread
-LIBCURL_NO_SHARED = -lssl -lcrypto -lssl -lcrypto  -lldap -llber -lzstd  -lz  -lgcov -pthread
+LIBCURL_LIBS = -lssl -lcrypto -lssl -lcrypto -lldap -llber -lzstd -lz -lgcc -pthread
+LIBCURL_NO_SHARED = -lssl -lcrypto -lssl -lcrypto  -lldap -llber -lzstd  -lz -lgcc  -pthread
 LIBOBJS = 
 
 # Prevent LIBS from being used for all link targets
@@ -566,8 +566,8 @@ SSL_BACKENDS = OpenSSL
 SSL_ENABLED = 1
 SSL_LIBS = -lssl -lcrypto 
 STRIP = strip
-SUPPORT_FEATURES = AsynchDNS HSTS IPv6 Largefile NTLM SSL TLS-SRP libz zstd
-SUPPORT_PROTOCOLS = DICT FILE FTP FTPS HTTP HTTPS IMAP IMAPS LDAP LDAPS MQTT SMB SMBS TELNET TFTP
+SUPPORT_FEATURES = AsynchDNS HSTS Largefile NTLM SSL TLS-SRP UnixSockets alt-svc libz zstd
+SUPPORT_PROTOCOLS = DICT FILE GOPHER GOPHERS HTTP HTTPS IMAP IMAPS LDAP LDAPS MQTT RTSP SMB SMBS TELNET
 USE_ARES = 
 USE_BEARSSL = 
 USE_GNUTLS = 
@@ -588,7 +588,7 @@ USE_QUICHE =
 USE_RUSTLS = 
 USE_SCHANNEL = 
 USE_SECTRANSP = 
-USE_UNIX_SOCKETS = 
+USE_UNIX_SOCKETS = 1
 USE_WIN32_CRYPTO = 
 USE_WIN32_LARGE_FILES = 
 USE_WIN32_SMALL_FILES = 
@@ -807,8 +807,8 @@ CURL_FILES = $(CURL_CFILES) $(CURLX_CFILES) $(CURL_HFILES)
 
 # CURL_FILES comes from Makefile.inc
 curl_SOURCES = $(CURL_FILES)
-#curl_LDADD = $(top_builddir)/lib/libcurl.la  -lssl -lcrypto  -lz -lgcov
-curl_LDADD = $(top_builddir)/lib/libcurl.la -lssl -lcrypto -lssl -lcrypto -lldap -llber -lzstd -lz -lgcov -pthread
+#curl_LDADD = $(top_builddir)/lib/libcurl.la  -lssl -lcrypto  -lz -lgcc
+curl_LDADD = $(top_builddir)/lib/libcurl.la -lssl -lcrypto -lssl -lcrypto -lldap -llber -lzstd -lz -lgcc -pthread
 
 # if unit tests are enabled, build a static library to link them with
 #noinst_LTLIBRARIES = libcurltool.la
@@ -1605,7 +1605,7 @@ distdir-am: $(DISTFILES)
 	done
 check-am: all-am
 check: check-recursive
-all-local:
+#all-local:
 all-am: Makefile $(PROGRAMS) $(LTLIBRARIES) all-local
 installdirs: installdirs-recursive
 installdirs-am:
@@ -20916,28 +20916,28 @@ uninstall-am: uninstall-binPROGRAMS
 
 # Here are the stuff to create a built-in manual
 
-#$(MANPAGE):
-#	cd $(top_builddir)/docs && $(MAKE)
+$(MANPAGE):
+	cd $(top_builddir)/docs && $(MAKE)
 
 # This generates the tool_hugehelp.c file in both uncompressed and
 # compressed formats.
-#$(HUGE): $(MANPAGE) $(MKHELP)
-#	$(HUGECMD) (echo '#include "tool_setup.h"' > $(HUGE);   \
-#	echo '#ifndef HAVE_LIBZ' >> $(HUGE);                    \
-#	$(NROFF) $(MANPAGE) | $(PERL) $(MKHELP) >> $(HUGE);     \
-#	echo '#else' >> $(HUGE);                                \
-#	$(NROFF) $(MANPAGE) | $(PERL) $(MKHELP) -c >> $(HUGE);  \
-#	echo '#endif /* HAVE_LIBZ */' >> $(HUGE) )
+$(HUGE): $(MANPAGE) $(MKHELP)
+	$(HUGECMD) (echo '#include "tool_setup.h"' > $(HUGE);   \
+	echo '#ifndef HAVE_LIBZ' >> $(HUGE);                    \
+	$(NROFF) $(MANPAGE) | $(PERL) $(MKHELP) >> $(HUGE);     \
+	echo '#else' >> $(HUGE);                                \
+	$(NROFF) $(MANPAGE) | $(PERL) $(MKHELP) -c >> $(HUGE);  \
+	echo '#endif /* HAVE_LIBZ */' >> $(HUGE) )
 # This generates the tool_hugehelp.c file uncompressed only
-##$(HUGE): $(MANPAGE) $(MKHELP)
-##	$(HUGECMD)(echo '#include "tool_setup.h"' > $(HUGE);    \
-##	$(NROFF) $(MANPAGE) | $(PERL) $(MKHELP) >> $(HUGE) )
+#$(HUGE): $(MANPAGE) $(MKHELP)
+#	$(HUGECMD)(echo '#include "tool_setup.h"' > $(HUGE);    \
+#	$(NROFF) $(MANPAGE) | $(PERL) $(MKHELP) >> $(HUGE) )
 
 # built-in manual has been disabled, make a blank file
-$(HUGE):
-	$(HUGECMD)(echo "/* built-in manual is disabled, blank function */" > $(HUGE); \
-	echo '#include "tool_hugehelp.h"' >> $(HUGE); \
-	echo "void hugehelp(void) {}" >>$(HUGE) )
+#$(HUGE):
+#	$(HUGECMD)(echo "/* built-in manual is disabled, blank function */" > $(HUGE); \
+#	echo '#include "tool_hugehelp.h"' >> $(HUGE); \
+#	echo "void hugehelp(void) {}" >>$(HUGE) )
 
 # ignore tool_hugehelp.c since it is generated source code and it plays
 # by slightly different rules!
@@ -20946,7 +20946,7 @@ checksrc:
 	-W$(srcdir)/tool_hugehelp.c $(srcdir)/*.[ch])
 
 # for debug builds, we scan the sources on all regular make invokes
-#all-local: checksrc
+all-local: checksrc
 
 tidy:
 	$(TIDY) $(CURL_CFILES) $(TIDYFLAGS) -- $(curl_CPPFLAGS) $(CPPFLAGS) -DHAVE_CONFIG_H
