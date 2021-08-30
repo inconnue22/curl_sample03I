@@ -2,7 +2,7 @@
 /* lib/curl_config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* to enable curl debug memory tracking */
-#define CURLDEBUG 1
+/* #undef CURLDEBUG */
 
 /* Location of default ca bundle */
 #define CURL_CA_BUNDLE "/etc/pki/tls/certs/ca-bundle.crt"
@@ -17,10 +17,10 @@
 /* #undef CURL_DEFAULT_SSL_BACKEND */
 
 /* disable alt-svc */
-/* #undef CURL_DISABLE_ALTSVC */
+#define CURL_DISABLE_ALTSVC 1
 
 /* to disable cookies support */
-/* #undef CURL_DISABLE_COOKIES */
+#define CURL_DISABLE_COOKIES 1
 
 /* to disable cryptographic authentication */
 /* #undef CURL_DISABLE_CRYPTO_AUTH */
@@ -32,13 +32,13 @@
 #define CURL_DISABLE_DOH 1
 
 /* to disable FILE */
-#define CURL_DISABLE_FILE 1
+/* #undef CURL_DISABLE_FILE */
 
 /* to disable FTP */
 /* #undef CURL_DISABLE_FTP */
 
 /* to disable curl_easy_options */
-#define CURL_DISABLE_GETOPTIONS 1
+/* #undef CURL_DISABLE_GETOPTIONS */
 
 /* to disable Gopher */
 /* #undef CURL_DISABLE_GOPHER */
@@ -53,7 +53,7 @@
 #define CURL_DISABLE_HTTP_AUTH 1
 
 /* to disable IMAP */
-/* #undef CURL_DISABLE_IMAP */
+#define CURL_DISABLE_IMAP 1
 
 /* to disable LDAP */
 /* #undef CURL_DISABLE_LDAP */
@@ -71,16 +71,16 @@
 /* #undef CURL_DISABLE_MQTT */
 
 /* disable netrc parsing */
-#define CURL_DISABLE_NETRC 1
+/* #undef CURL_DISABLE_NETRC */
 
 /* to disable NTLM support */
 /* #undef CURL_DISABLE_NTLM */
 
 /* if the OpenSSL configuration won't be loaded automatically */
-#define CURL_DISABLE_OPENSSL_AUTO_LOAD_CONFIG 1
+/* #undef CURL_DISABLE_OPENSSL_AUTO_LOAD_CONFIG */
 
 /* disable date parsing */
-#define CURL_DISABLE_PARSEDATE 1
+/* #undef CURL_DISABLE_PARSEDATE */
 
 /* to disable POP3 */
 /* #undef CURL_DISABLE_POP3 */
@@ -92,31 +92,31 @@
 /* #undef CURL_DISABLE_PROXY */
 
 /* to disable RTSP */
-/* #undef CURL_DISABLE_RTSP */
+#define CURL_DISABLE_RTSP 1
 
 /* disable DNS shuffling */
-#define CURL_DISABLE_SHUFFLE_DNS 1
+/* #undef CURL_DISABLE_SHUFFLE_DNS */
 
 /* to disable SMB/CIFS */
-/* #undef CURL_DISABLE_SMB */
+#define CURL_DISABLE_SMB 1
 
 /* to disable SMTP */
 /* #undef CURL_DISABLE_SMTP */
 
 /* to disable socketpair support */
-/* #undef CURL_DISABLE_SOCKETPAIR */
+#define CURL_DISABLE_SOCKETPAIR 1
 
 /* to disable TELNET */
 /* #undef CURL_DISABLE_TELNET */
 
 /* to disable TFTP */
-#define CURL_DISABLE_TFTP 1
+/* #undef CURL_DISABLE_TFTP */
 
 /* to disable verbose strings */
 /* #undef CURL_DISABLE_VERBOSE_STRINGS */
 
 /* Definition to make a library symbol externally visible. */
-/* #undef CURL_EXTERN_SYMBOL */
+#define CURL_EXTERN_SYMBOL __attribute__ ((__visibility__ ("default")))
 
 /* IP address type in sockaddr */
 #define CURL_SA_FAMILY_T sa_family_t
@@ -530,7 +530,7 @@
 /* #undef HAVE_PROTO_BSDSOCKET_H */
 
 /* if you have <pthread.h> */
-/* #undef HAVE_PTHREAD_H */
+#define HAVE_PTHREAD_H 1
 
 /* Define to 1 if you have the <pwd.h> header file. */
 #define HAVE_PWD_H 1
@@ -1010,7 +1010,7 @@
 /* #undef USE_SECTRANSP */
 
 /* if you want POSIX threaded DNS lookup */
-/* #undef USE_THREADS_POSIX */
+#define USE_THREADS_POSIX 1
 
 /* if you want Win32 threaded DNS lookup */
 /* #undef USE_THREADS_WIN32 */
