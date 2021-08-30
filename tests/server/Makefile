@@ -515,7 +515,7 @@ am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.inc \
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = ${SHELL} /github/curl/missing aclocal-1.16
 AMTAR = $${TAR-tar}
-AM_DEFAULT_VERBOSITY = 1
+AM_DEFAULT_VERBOSITY = 0
 AR = /usr/bin/ar
 AR_FLAGS = cr
 AS = as
@@ -526,31 +526,31 @@ AWK = gawk
 BLANK_AT_MAKETIME = 
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Werror-implicit-function-declaration -O2 -Wno-system-headers -Wenum-conversion -pthread
+CFLAGS = -Werror-implicit-function-declaration -g -O0 -Wno-system-headers -Wenum-conversion
 CFLAG_CURL_SYMBOL_HIDING = -fvisibility=hidden
-CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-largefile' '--disable-libtool-lock' '--disable-silent-rules' '--disable-debug' '--disable-warnings' '--enable-curldebug' '--disable-symbol-hiding' '--enable-maintainer-mode' '--enable-http' '--disable-ftp' '--enable-file' '--enable-ldap' '--enable-ldaps' '--enable-rtsp' '--disable-proxy' '--disable-tftp' '--disable-pop3' '--enable-imap' '--enable-smb' '--disable-smtp' '--enable-libcurl-option' '--disable-ipv6' '--disable-versioned-symbols' '--disable-verbose' '--enable-sspi' '--enable-crypto-auth' '--disable-ntlm-wb' '--enable-tls-srp' '--enable-unix-sockets' '--enable-cookies' '--disable-socketpair' '--enable-http-auth' '--enable-doh' '--disable-mime' '--disable-dateparse' '--enable-netrc' '--disable-progress-meter' '--enable-dnsshuffle' '--enable-get-easy-options' '--enable-alt-svc' '--disable-hsts' '--enable-hidden-symbols' '--enable-static' '--enable-libgcc'"
+CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-largefile' '--disable-libtool-lock' '--enable-silent-rules' '--enable-debug' '--disable-optimize' '--disable-warnings' '--disable-curldebug' '--enable-maintainer-mode' '--enable-dependency-tracking' '--disable-http' '--disable-file' '--disable-ldap' '--enable-ldaps' '--disable-rtsp' '--disable-proxy' '--disable-dict' '--enable-telnet' '--enable-tftp' '--disable-imap' '--enable-smb' '--enable-smtp' '--enable-gopher' '--disable-mqtt' '--disable-manual' '--disable-libcurl-option' '--disable-ipv6' '--disable-versioned-symbols' '--disable-threaded-resolver' '--disable-verbose' '--enable-sspi' '--enable-crypto-auth' '--enable-ntlm-wb' '--disable-tls-srp' '--disable-unix-sockets' '--enable-cookies' '--disable-socketpair' '--enable-http-auth' '--enable-doh' '--disable-netrc' '--enable-progress-meter' '--disable-dnsshuffle' '--disable-get-easy-options' '--enable-alt-svc' '--enable-hsts' '--enable-fast-install' '--enable-libgcc'"
 CPP = gcc -E
 CPPFLAGS = 
 CPPFLAG_CURL_STATICLIB = -DCURL_STATICLIB
 CURLVERSION = 7.78.0-DEV
 CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"
 CURL_CFLAG_EXTRAS = 
-CURL_DISABLE_DICT = 
-CURL_DISABLE_FILE = 
-CURL_DISABLE_FTP = 1
+CURL_DISABLE_DICT = 1
+CURL_DISABLE_FILE = 1
+CURL_DISABLE_FTP = 
 CURL_DISABLE_GOPHER = 
-CURL_DISABLE_HTTP = 
-CURL_DISABLE_IMAP = 
-CURL_DISABLE_LDAP = 
-CURL_DISABLE_LDAPS = 
-CURL_DISABLE_MQTT = 
-CURL_DISABLE_POP3 = 1
+CURL_DISABLE_HTTP = 1
+CURL_DISABLE_IMAP = 1
+CURL_DISABLE_LDAP = 1
+CURL_DISABLE_LDAPS = 1
+CURL_DISABLE_MQTT = 1
+CURL_DISABLE_POP3 = 
 CURL_DISABLE_PROXY = 1
-CURL_DISABLE_RTSP = 
+CURL_DISABLE_RTSP = 1
 CURL_DISABLE_SMB = 
-CURL_DISABLE_SMTP = 1
+CURL_DISABLE_SMTP = 
 CURL_DISABLE_TELNET = 
-CURL_DISABLE_TFTP = 1
+CURL_DISABLE_TFTP = 
 CURL_LT_SHLIB_VERSIONED_FLAVOUR = 
 CURL_NETWORK_AND_TIME_LIBS = -lgcc
 CURL_NETWORK_LIBS = -lgcc
@@ -575,7 +575,7 @@ GCOV =
 GREP = /usr/bin/grep
 HAVE_BROTLI = 
 HAVE_GNUTLS_SRP = 
-HAVE_LDAP_SSL = 1
+HAVE_LDAP_SSL = 
 HAVE_LIBZ = 1
 HAVE_OPENSSL_SRP = 1
 HAVE_PROTO_BSDSOCKET_H = 
@@ -590,8 +590,8 @@ IPV6_ENABLED =
 LCOV = 
 LD = /usr/bin/ld -m elf_x86_64
 LDFLAGS = 
-LIBCURL_LIBS = -lssl -lcrypto -lssl -lcrypto -lldap -llber -lzstd -lz -lgcc -pthread
-LIBCURL_NO_SHARED = -lssl -lcrypto -lssl -lcrypto  -lldap -llber -lzstd  -lz -lgcc  -pthread
+LIBCURL_LIBS = -lssl -lcrypto -lssl -lcrypto -lzstd -lz -lgcc
+LIBCURL_NO_SHARED = -lssl -lcrypto -lssl -lcrypto  -lzstd  -lz -lgcc 
 LIBOBJS = 
 
 # Prevent LIBS from being used for all link targets
@@ -637,8 +637,8 @@ SSL_BACKENDS = OpenSSL
 SSL_ENABLED = 1
 SSL_LIBS = -lssl -lcrypto 
 STRIP = strip
-SUPPORT_FEATURES = AsynchDNS HSTS Largefile NTLM SSL TLS-SRP UnixSockets alt-svc libz zstd
-SUPPORT_PROTOCOLS = DICT FILE GOPHER GOPHERS HTTP HTTPS IMAP IMAPS LDAP LDAPS MQTT RTSP SMB SMBS TELNET
+SUPPORT_FEATURES = Largefile NTLM SSL libz zstd
+SUPPORT_PROTOCOLS = FTP FTPS GOPHER GOPHERS POP3 POP3S SMB SMBS SMTP SMTPS TELNET TFTP
 USE_ARES = 
 USE_BEARSSL = 
 USE_GNUTLS = 
@@ -654,12 +654,12 @@ USE_NGTCP2 =
 USE_NGTCP2_CRYPTO_GNUTLS = 
 USE_NGTCP2_CRYPTO_OPENSSL = 
 USE_NSS = 
-USE_OPENLDAP = 1
+USE_OPENLDAP = 
 USE_QUICHE = 
 USE_RUSTLS = 
 USE_SCHANNEL = 
 USE_SECTRANSP = 
-USE_UNIX_SOCKETS = 1
+USE_UNIX_SOCKETS = 
 USE_WIN32_CRYPTO = 
 USE_WIN32_LARGE_FILES = 
 USE_WIN32_SMALL_FILES = 
@@ -3071,7 +3071,7 @@ distdir-am: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-#all-local:
+all-local:
 all-am: Makefile $(PROGRAMS) all-local
 installdirs:
 install: install-am
@@ -34416,7 +34416,7 @@ checksrc:
 	$(CHECKSRC)/usr/bin/perl $(top_srcdir)/lib/checksrc.pl $(srcdir)/*.[ch]
 
 # for debug builds, we scan the sources on all regular make invokes
-all-local: checksrc
+#all-local: checksrc
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
