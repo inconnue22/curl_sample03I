@@ -20,25 +20,25 @@
 /* #undef CURL_DISABLE_ALTSVC */
 
 /* to disable cookies support */
-/* #undef CURL_DISABLE_COOKIES */
+#define CURL_DISABLE_COOKIES 1
 
 /* to disable cryptographic authentication */
-#define CURL_DISABLE_CRYPTO_AUTH 1
+/* #undef CURL_DISABLE_CRYPTO_AUTH */
 
 /* to disable DICT */
-/* #undef CURL_DISABLE_DICT */
+#define CURL_DISABLE_DICT 1
 
 /* disable DoH */
-/* #undef CURL_DISABLE_DOH */
+#define CURL_DISABLE_DOH 1
 
 /* to disable FILE */
-#define CURL_DISABLE_FILE 1
+/* #undef CURL_DISABLE_FILE */
 
 /* to disable FTP */
 /* #undef CURL_DISABLE_FTP */
 
 /* to disable curl_easy_options */
-/* #undef CURL_DISABLE_GETOPTIONS */
+#define CURL_DISABLE_GETOPTIONS 1
 
 /* to disable Gopher */
 /* #undef CURL_DISABLE_GOPHER */
@@ -62,13 +62,13 @@
 #define CURL_DISABLE_LDAPS 1
 
 /* to disable --libcurl C code generation option */
-/* #undef CURL_DISABLE_LIBCURL_OPTION */
+#define CURL_DISABLE_LIBCURL_OPTION 1
 
 /* disable mime API */
 /* #undef CURL_DISABLE_MIME */
 
 /* to disable MQTT */
-/* #undef CURL_DISABLE_MQTT */
+#define CURL_DISABLE_MQTT 1
 
 /* disable netrc parsing */
 /* #undef CURL_DISABLE_NETRC */
@@ -86,7 +86,7 @@
 /* #undef CURL_DISABLE_POP3 */
 
 /* disable progress-meter */
-#define CURL_DISABLE_PROGRESS_METER 1
+/* #undef CURL_DISABLE_PROGRESS_METER */
 
 /* to disable proxies */
 /* #undef CURL_DISABLE_PROXY */
@@ -113,7 +113,7 @@
 /* #undef CURL_DISABLE_TFTP */
 
 /* to disable verbose strings */
-#define CURL_DISABLE_VERBOSE_STRINGS 1
+/* #undef CURL_DISABLE_VERBOSE_STRINGS */
 
 /* Definition to make a library symbol externally visible. */
 #define CURL_EXTERN_SYMBOL __attribute__ ((__visibility__ ("default")))
@@ -1016,10 +1016,10 @@
 /* #undef USE_THREADS_WIN32 */
 
 /* Use TLS-SRP authentication */
-#define USE_TLS_SRP 1
+/* #undef USE_TLS_SRP */
 
 /* Use Unix domain sockets */
-#define USE_UNIX_SOCKETS 1
+/* #undef USE_UNIX_SOCKETS */
 
 /* Define to 1 if you are building a Windows target with crypto API support.
    */
