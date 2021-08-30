@@ -2,7 +2,7 @@
 /* lib/curl_config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* to enable curl debug memory tracking */
-/* #undef CURLDEBUG */
+#define CURLDEBUG 1
 
 /* Location of default ca bundle */
 #define CURL_CA_BUNDLE "/etc/pki/tls/certs/ca-bundle.crt"
@@ -23,7 +23,7 @@
 /* #undef CURL_DISABLE_COOKIES */
 
 /* to disable cryptographic authentication */
-#define CURL_DISABLE_CRYPTO_AUTH 1
+/* #undef CURL_DISABLE_CRYPTO_AUTH */
 
 /* to disable DICT */
 /* #undef CURL_DISABLE_DICT */
@@ -38,7 +38,7 @@
 #define CURL_DISABLE_FTP 1
 
 /* to disable curl_easy_options */
-#define CURL_DISABLE_GETOPTIONS 1
+/* #undef CURL_DISABLE_GETOPTIONS */
 
 /* to disable Gopher */
 /* #undef CURL_DISABLE_GOPHER */
@@ -65,13 +65,13 @@
 /* #undef CURL_DISABLE_LIBCURL_OPTION */
 
 /* disable mime API */
-/* #undef CURL_DISABLE_MIME */
+#define CURL_DISABLE_MIME 1
 
 /* to disable MQTT */
-#define CURL_DISABLE_MQTT 1
+/* #undef CURL_DISABLE_MQTT */
 
 /* disable netrc parsing */
-#define CURL_DISABLE_NETRC 1
+/* #undef CURL_DISABLE_NETRC */
 
 /* to disable NTLM support */
 /* #undef CURL_DISABLE_NTLM */
@@ -80,16 +80,16 @@
 /* #undef CURL_DISABLE_OPENSSL_AUTO_LOAD_CONFIG */
 
 /* disable date parsing */
-/* #undef CURL_DISABLE_PARSEDATE */
+#define CURL_DISABLE_PARSEDATE 1
 
 /* to disable POP3 */
-/* #undef CURL_DISABLE_POP3 */
+#define CURL_DISABLE_POP3 1
 
 /* disable progress-meter */
-/* #undef CURL_DISABLE_PROGRESS_METER */
+#define CURL_DISABLE_PROGRESS_METER 1
 
 /* to disable proxies */
-/* #undef CURL_DISABLE_PROXY */
+#define CURL_DISABLE_PROXY 1
 
 /* to disable RTSP */
 /* #undef CURL_DISABLE_RTSP */
@@ -98,19 +98,19 @@
 /* #undef CURL_DISABLE_SHUFFLE_DNS */
 
 /* to disable SMB/CIFS */
-#define CURL_DISABLE_SMB 1
+/* #undef CURL_DISABLE_SMB */
 
 /* to disable SMTP */
-/* #undef CURL_DISABLE_SMTP */
+#define CURL_DISABLE_SMTP 1
 
 /* to disable socketpair support */
-/* #undef CURL_DISABLE_SOCKETPAIR */
+#define CURL_DISABLE_SOCKETPAIR 1
 
 /* to disable TELNET */
 /* #undef CURL_DISABLE_TELNET */
 
 /* to disable TFTP */
-/* #undef CURL_DISABLE_TFTP */
+#define CURL_DISABLE_TFTP 1
 
 /* to disable verbose strings */
 #define CURL_DISABLE_VERBOSE_STRINGS 1
@@ -131,7 +131,7 @@
 /* #undef EGD_SOCKET */
 
 /* Define if you want to enable IPv6 support */
-#define ENABLE_IPV6 1
+/* #undef ENABLE_IPV6 */
 
 /* Define to the type of arg 2 for gethostname. */
 #define GETHOSTNAME_TYPE_ARG2 size_t
@@ -530,7 +530,7 @@
 /* #undef HAVE_PROTO_BSDSOCKET_H */
 
 /* if you have <pthread.h> */
-/* #undef HAVE_PTHREAD_H */
+#define HAVE_PTHREAD_H 1
 
 /* Define to 1 if you have the <pwd.h> header file. */
 #define HAVE_PWD_H 1
@@ -596,7 +596,7 @@
 /* #undef HAVE_SIG_ATOMIC_T_VOLATILE */
 
 /* Define to 1 if struct sockaddr_in6 has the sin6_scope_id member */
-#define HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID 1
+/* #undef HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID */
 
 /* Define to 1 if you have the socket function. */
 #define HAVE_SOCKET 1
@@ -821,10 +821,10 @@
 /* #undef NEED_THREAD_SAFE */
 
 /* Define to enable NTLM delegation to winbind's ntlm_auth helper. */
-#define NTLM_WB_ENABLED 1
+/* #undef NTLM_WB_ENABLED */
 
 /* Define absolute filename for winbind's ntlm_auth helper. */
-#define NTLM_WB_FILE "/usr/bin/ntlm_auth"
+/* #undef NTLM_WB_FILE */
 
 /* cpu-machine-OS */
 #define OS "x86_64-pc-linux-gnu"
@@ -935,7 +935,7 @@
 /* #undef USE_AMISSL */
 
 /* Define to enable c-ares support */
-#define USE_ARES 1
+/* #undef USE_ARES */
 
 /* if BearSSL is enabled */
 /* #undef USE_BEARSSL */
@@ -965,7 +965,7 @@
 /* #undef USE_LIBSSH2 */
 
 /* If you want to build curl with the built-in manual */
-/* #undef USE_MANUAL */
+#define USE_MANUAL 1
 
 /* if mbedTLS is enabled */
 /* #undef USE_MBEDTLS */
@@ -1010,7 +1010,7 @@
 /* #undef USE_SECTRANSP */
 
 /* if you want POSIX threaded DNS lookup */
-/* #undef USE_THREADS_POSIX */
+#define USE_THREADS_POSIX 1
 
 /* if you want Win32 threaded DNS lookup */
 /* #undef USE_THREADS_WIN32 */
@@ -1019,7 +1019,7 @@
 #define USE_TLS_SRP 1
 
 /* Use Unix domain sockets */
-/* #undef USE_UNIX_SOCKETS */
+#define USE_UNIX_SOCKETS 1
 
 /* Define to 1 if you are building a Windows target with crypto API support.
    */
