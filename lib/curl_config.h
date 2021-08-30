@@ -26,22 +26,22 @@
 #define CURL_DISABLE_CRYPTO_AUTH 1
 
 /* to disable DICT */
-/* #undef CURL_DISABLE_DICT */
+#define CURL_DISABLE_DICT 1
 
 /* disable DoH */
 /* #undef CURL_DISABLE_DOH */
 
 /* to disable FILE */
-/* #undef CURL_DISABLE_FILE */
+#define CURL_DISABLE_FILE 1
 
 /* to disable FTP */
-#define CURL_DISABLE_FTP 1
+/* #undef CURL_DISABLE_FTP */
 
 /* to disable curl_easy_options */
-#define CURL_DISABLE_GETOPTIONS 1
+/* #undef CURL_DISABLE_GETOPTIONS */
 
 /* to disable Gopher */
-/* #undef CURL_DISABLE_GOPHER */
+#define CURL_DISABLE_GOPHER 1
 
 /* disable alt-svc */
 /* #undef CURL_DISABLE_HSTS */
@@ -50,7 +50,7 @@
 /* #undef CURL_DISABLE_HTTP */
 
 /* disable HTTP authentication */
-/* #undef CURL_DISABLE_HTTP_AUTH */
+#define CURL_DISABLE_HTTP_AUTH 1
 
 /* to disable IMAP */
 /* #undef CURL_DISABLE_IMAP */
@@ -62,13 +62,13 @@
 /* #undef CURL_DISABLE_LDAPS */
 
 /* to disable --libcurl C code generation option */
-/* #undef CURL_DISABLE_LIBCURL_OPTION */
+#define CURL_DISABLE_LIBCURL_OPTION 1
 
 /* disable mime API */
 /* #undef CURL_DISABLE_MIME */
 
 /* to disable MQTT */
-#define CURL_DISABLE_MQTT 1
+/* #undef CURL_DISABLE_MQTT */
 
 /* disable netrc parsing */
 #define CURL_DISABLE_NETRC 1
@@ -80,7 +80,7 @@
 /* #undef CURL_DISABLE_OPENSSL_AUTO_LOAD_CONFIG */
 
 /* disable date parsing */
-/* #undef CURL_DISABLE_PARSEDATE */
+#define CURL_DISABLE_PARSEDATE 1
 
 /* to disable POP3 */
 /* #undef CURL_DISABLE_POP3 */
@@ -92,7 +92,7 @@
 /* #undef CURL_DISABLE_PROXY */
 
 /* to disable RTSP */
-/* #undef CURL_DISABLE_RTSP */
+#define CURL_DISABLE_RTSP 1
 
 /* disable DNS shuffling */
 /* #undef CURL_DISABLE_SHUFFLE_DNS */
@@ -110,7 +110,7 @@
 /* #undef CURL_DISABLE_TELNET */
 
 /* to disable TFTP */
-/* #undef CURL_DISABLE_TFTP */
+#define CURL_DISABLE_TFTP 1
 
 /* to disable verbose strings */
 #define CURL_DISABLE_VERBOSE_STRINGS 1
@@ -935,7 +935,7 @@
 /* #undef USE_AMISSL */
 
 /* Define to enable c-ares support */
-#define USE_ARES 1
+/* #undef USE_ARES */
 
 /* if BearSSL is enabled */
 /* #undef USE_BEARSSL */
@@ -1019,7 +1019,7 @@
 #define USE_TLS_SRP 1
 
 /* Use Unix domain sockets */
-/* #undef USE_UNIX_SOCKETS */
+#define USE_UNIX_SOCKETS 1
 
 /* Define to 1 if you are building a Windows target with crypto API support.
    */
