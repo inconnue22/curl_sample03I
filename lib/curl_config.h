@@ -2,7 +2,7 @@
 /* lib/curl_config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* to enable curl debug memory tracking */
-/* #undef CURLDEBUG */
+#define CURLDEBUG 1
 
 /* Location of default ca bundle */
 #define CURL_CA_BUNDLE "/etc/pki/tls/certs/ca-bundle.crt"
@@ -17,7 +17,7 @@
 /* #undef CURL_DEFAULT_SSL_BACKEND */
 
 /* disable alt-svc */
-#define CURL_DISABLE_ALTSVC 1
+/* #undef CURL_DISABLE_ALTSVC */
 
 /* to disable cookies support */
 #define CURL_DISABLE_COOKIES 1
@@ -26,10 +26,10 @@
 /* #undef CURL_DISABLE_CRYPTO_AUTH */
 
 /* to disable DICT */
-/* #undef CURL_DISABLE_DICT */
+#define CURL_DISABLE_DICT 1
 
 /* disable DoH */
-#define CURL_DISABLE_DOH 1
+/* #undef CURL_DISABLE_DOH */
 
 /* to disable FILE */
 /* #undef CURL_DISABLE_FILE */
@@ -38,7 +38,7 @@
 /* #undef CURL_DISABLE_FTP */
 
 /* to disable curl_easy_options */
-/* #undef CURL_DISABLE_GETOPTIONS */
+#define CURL_DISABLE_GETOPTIONS 1
 
 /* to disable Gopher */
 /* #undef CURL_DISABLE_GOPHER */
@@ -50,13 +50,13 @@
 /* #undef CURL_DISABLE_HTTP */
 
 /* disable HTTP authentication */
-#define CURL_DISABLE_HTTP_AUTH 1
+/* #undef CURL_DISABLE_HTTP_AUTH */
 
 /* to disable IMAP */
 #define CURL_DISABLE_IMAP 1
 
 /* to disable LDAP */
-/* #undef CURL_DISABLE_LDAP */
+#define CURL_DISABLE_LDAP 1
 
 /* to disable LDAPS */
 #define CURL_DISABLE_LDAPS 1
@@ -68,7 +68,7 @@
 #define CURL_DISABLE_MIME 1
 
 /* to disable MQTT */
-/* #undef CURL_DISABLE_MQTT */
+#define CURL_DISABLE_MQTT 1
 
 /* disable netrc parsing */
 /* #undef CURL_DISABLE_NETRC */
@@ -83,34 +83,34 @@
 /* #undef CURL_DISABLE_PARSEDATE */
 
 /* to disable POP3 */
-/* #undef CURL_DISABLE_POP3 */
+#define CURL_DISABLE_POP3 1
 
 /* disable progress-meter */
-#define CURL_DISABLE_PROGRESS_METER 1
+/* #undef CURL_DISABLE_PROGRESS_METER */
 
 /* to disable proxies */
-/* #undef CURL_DISABLE_PROXY */
+#define CURL_DISABLE_PROXY 1
 
 /* to disable RTSP */
-#define CURL_DISABLE_RTSP 1
+/* #undef CURL_DISABLE_RTSP */
 
 /* disable DNS shuffling */
 /* #undef CURL_DISABLE_SHUFFLE_DNS */
 
 /* to disable SMB/CIFS */
-#define CURL_DISABLE_SMB 1
+/* #undef CURL_DISABLE_SMB */
 
 /* to disable SMTP */
-/* #undef CURL_DISABLE_SMTP */
+#define CURL_DISABLE_SMTP 1
 
 /* to disable socketpair support */
 #define CURL_DISABLE_SOCKETPAIR 1
 
 /* to disable TELNET */
-/* #undef CURL_DISABLE_TELNET */
+#define CURL_DISABLE_TELNET 1
 
 /* to disable TFTP */
-/* #undef CURL_DISABLE_TFTP */
+#define CURL_DISABLE_TFTP 1
 
 /* to disable verbose strings */
 /* #undef CURL_DISABLE_VERBOSE_STRINGS */
@@ -131,7 +131,7 @@
 /* #undef EGD_SOCKET */
 
 /* Define if you want to enable IPv6 support */
-#define ENABLE_IPV6 1
+/* #undef ENABLE_IPV6 */
 
 /* Define to the type of arg 2 for gethostname. */
 #define GETHOSTNAME_TYPE_ARG2 size_t
@@ -358,16 +358,16 @@
 /* #undef HAVE_IO_H */
 
 /* Define to 1 if you have the lber.h header file. */
-#define HAVE_LBER_H 1
+/* #undef HAVE_LBER_H */
 
 /* Define to 1 if you have the ldapssl.h header file. */
 /* #undef HAVE_LDAPSSL_H */
 
 /* Define to 1 if you have the ldap.h header file. */
-#define HAVE_LDAP_H 1
+/* #undef HAVE_LDAP_H */
 
 /* Define to 1 if you have the `ldap_init_fd' function. */
-#define HAVE_LDAP_INIT_FD 1
+/* #undef HAVE_LDAP_INIT_FD */
 
 /* Use LDAPS implementation */
 /* #undef HAVE_LDAP_SSL */
@@ -376,7 +376,7 @@
 /* #undef HAVE_LDAP_SSL_H */
 
 /* Define to 1 if you have the `ldap_url_parse' function. */
-#define HAVE_LDAP_URL_PARSE 1
+/* #undef HAVE_LDAP_URL_PARSE */
 
 /* Define to 1 if you have the `brotlidec' library (-lbrotlidec). */
 /* #undef HAVE_LIBBROTLIDEC */
@@ -530,7 +530,7 @@
 /* #undef HAVE_PROTO_BSDSOCKET_H */
 
 /* if you have <pthread.h> */
-#define HAVE_PTHREAD_H 1
+/* #undef HAVE_PTHREAD_H */
 
 /* Define to 1 if you have the <pwd.h> header file. */
 #define HAVE_PWD_H 1
@@ -596,7 +596,7 @@
 /* #undef HAVE_SIG_ATOMIC_T_VOLATILE */
 
 /* Define to 1 if struct sockaddr_in6 has the sin6_scope_id member */
-#define HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID 1
+/* #undef HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID */
 
 /* Define to 1 if you have the socket function. */
 #define HAVE_SOCKET 1
@@ -821,10 +821,10 @@
 /* #undef NEED_THREAD_SAFE */
 
 /* Define to enable NTLM delegation to winbind's ntlm_auth helper. */
-#define NTLM_WB_ENABLED 1
+/* #undef NTLM_WB_ENABLED */
 
 /* Define absolute filename for winbind's ntlm_auth helper. */
-#define NTLM_WB_FILE "/usr/bin/ntlm_auth"
+/* #undef NTLM_WB_FILE */
 
 /* cpu-machine-OS */
 #define OS "x86_64-pc-linux-gnu"
@@ -935,7 +935,7 @@
 /* #undef USE_AMISSL */
 
 /* Define to enable c-ares support */
-/* #undef USE_ARES */
+#define USE_ARES 1
 
 /* if BearSSL is enabled */
 /* #undef USE_BEARSSL */
@@ -965,7 +965,7 @@
 /* #undef USE_LIBSSH2 */
 
 /* If you want to build curl with the built-in manual */
-#define USE_MANUAL 1
+/* #undef USE_MANUAL */
 
 /* if mbedTLS is enabled */
 /* #undef USE_MBEDTLS */
@@ -992,7 +992,7 @@
 /* #undef USE_NSS */
 
 /* Use OpenLDAP-specific code */
-#define USE_OPENLDAP 1
+/* #undef USE_OPENLDAP */
 
 /* if OpenSSL is in use */
 #define USE_OPENSSL 1
@@ -1010,7 +1010,7 @@
 /* #undef USE_SECTRANSP */
 
 /* if you want POSIX threaded DNS lookup */
-#define USE_THREADS_POSIX 1
+/* #undef USE_THREADS_POSIX */
 
 /* if you want Win32 threaded DNS lookup */
 /* #undef USE_THREADS_WIN32 */
