@@ -20,13 +20,13 @@
 /* #undef CURL_DISABLE_ALTSVC */
 
 /* to disable cookies support */
-/* #undef CURL_DISABLE_COOKIES */
+#define CURL_DISABLE_COOKIES 1
 
 /* to disable cryptographic authentication */
 /* #undef CURL_DISABLE_CRYPTO_AUTH */
 
 /* to disable DICT */
-/* #undef CURL_DISABLE_DICT */
+#define CURL_DISABLE_DICT 1
 
 /* disable DoH */
 /* #undef CURL_DISABLE_DOH */
@@ -35,10 +35,10 @@
 /* #undef CURL_DISABLE_FILE */
 
 /* to disable FTP */
-#define CURL_DISABLE_FTP 1
+/* #undef CURL_DISABLE_FTP */
 
 /* to disable curl_easy_options */
-/* #undef CURL_DISABLE_GETOPTIONS */
+#define CURL_DISABLE_GETOPTIONS 1
 
 /* to disable Gopher */
 /* #undef CURL_DISABLE_GOPHER */
@@ -53,13 +53,13 @@
 /* #undef CURL_DISABLE_HTTP_AUTH */
 
 /* to disable IMAP */
-/* #undef CURL_DISABLE_IMAP */
+#define CURL_DISABLE_IMAP 1
 
 /* to disable LDAP */
-/* #undef CURL_DISABLE_LDAP */
+#define CURL_DISABLE_LDAP 1
 
 /* to disable LDAPS */
-/* #undef CURL_DISABLE_LDAPS */
+#define CURL_DISABLE_LDAPS 1
 
 /* to disable --libcurl C code generation option */
 /* #undef CURL_DISABLE_LIBCURL_OPTION */
@@ -68,7 +68,7 @@
 #define CURL_DISABLE_MIME 1
 
 /* to disable MQTT */
-/* #undef CURL_DISABLE_MQTT */
+#define CURL_DISABLE_MQTT 1
 
 /* disable netrc parsing */
 /* #undef CURL_DISABLE_NETRC */
@@ -80,13 +80,13 @@
 /* #undef CURL_DISABLE_OPENSSL_AUTO_LOAD_CONFIG */
 
 /* disable date parsing */
-#define CURL_DISABLE_PARSEDATE 1
+/* #undef CURL_DISABLE_PARSEDATE */
 
 /* to disable POP3 */
 #define CURL_DISABLE_POP3 1
 
 /* disable progress-meter */
-#define CURL_DISABLE_PROGRESS_METER 1
+/* #undef CURL_DISABLE_PROGRESS_METER */
 
 /* to disable proxies */
 #define CURL_DISABLE_PROXY 1
@@ -107,13 +107,13 @@
 #define CURL_DISABLE_SOCKETPAIR 1
 
 /* to disable TELNET */
-/* #undef CURL_DISABLE_TELNET */
+#define CURL_DISABLE_TELNET 1
 
 /* to disable TFTP */
 #define CURL_DISABLE_TFTP 1
 
 /* to disable verbose strings */
-#define CURL_DISABLE_VERBOSE_STRINGS 1
+/* #undef CURL_DISABLE_VERBOSE_STRINGS */
 
 /* Definition to make a library symbol externally visible. */
 #define CURL_EXTERN_SYMBOL __attribute__ ((__visibility__ ("default")))
@@ -125,7 +125,7 @@
 /* #undef CURL_WITH_MULTI_SSL */
 
 /* enable debug build options */
-/* #undef DEBUGBUILD */
+#define DEBUGBUILD 1
 
 /* your Entropy Gathering Daemon socket pathname */
 /* #undef EGD_SOCKET */
@@ -358,25 +358,25 @@
 /* #undef HAVE_IO_H */
 
 /* Define to 1 if you have the lber.h header file. */
-#define HAVE_LBER_H 1
+/* #undef HAVE_LBER_H */
 
 /* Define to 1 if you have the ldapssl.h header file. */
 /* #undef HAVE_LDAPSSL_H */
 
 /* Define to 1 if you have the ldap.h header file. */
-#define HAVE_LDAP_H 1
+/* #undef HAVE_LDAP_H */
 
 /* Define to 1 if you have the `ldap_init_fd' function. */
-#define HAVE_LDAP_INIT_FD 1
+/* #undef HAVE_LDAP_INIT_FD */
 
 /* Use LDAPS implementation */
-#define HAVE_LDAP_SSL 1
+/* #undef HAVE_LDAP_SSL */
 
 /* Define to 1 if you have the ldap_ssl.h header file. */
 /* #undef HAVE_LDAP_SSL_H */
 
 /* Define to 1 if you have the `ldap_url_parse' function. */
-#define HAVE_LDAP_URL_PARSE 1
+/* #undef HAVE_LDAP_URL_PARSE */
 
 /* Define to 1 if you have the `brotlidec' library (-lbrotlidec). */
 /* #undef HAVE_LIBBROTLIDEC */
@@ -530,7 +530,7 @@
 /* #undef HAVE_PROTO_BSDSOCKET_H */
 
 /* if you have <pthread.h> */
-#define HAVE_PTHREAD_H 1
+/* #undef HAVE_PTHREAD_H */
 
 /* Define to 1 if you have the <pwd.h> header file. */
 #define HAVE_PWD_H 1
@@ -935,7 +935,7 @@
 /* #undef USE_AMISSL */
 
 /* Define to enable c-ares support */
-/* #undef USE_ARES */
+#define USE_ARES 1
 
 /* if BearSSL is enabled */
 /* #undef USE_BEARSSL */
@@ -965,7 +965,7 @@
 /* #undef USE_LIBSSH2 */
 
 /* If you want to build curl with the built-in manual */
-#define USE_MANUAL 1
+/* #undef USE_MANUAL */
 
 /* if mbedTLS is enabled */
 /* #undef USE_MBEDTLS */
@@ -992,7 +992,7 @@
 /* #undef USE_NSS */
 
 /* Use OpenLDAP-specific code */
-#define USE_OPENLDAP 1
+/* #undef USE_OPENLDAP */
 
 /* if OpenSSL is in use */
 #define USE_OPENSSL 1
@@ -1010,7 +1010,7 @@
 /* #undef USE_SECTRANSP */
 
 /* if you want POSIX threaded DNS lookup */
-#define USE_THREADS_POSIX 1
+/* #undef USE_THREADS_POSIX */
 
 /* if you want Win32 threaded DNS lookup */
 /* #undef USE_THREADS_WIN32 */
