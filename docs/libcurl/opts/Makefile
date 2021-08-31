@@ -235,35 +235,35 @@ AUTOMAKE = ${SHELL} /github/curl/missing automake-1.16
 AWK = gawk
 BLANK_AT_MAKETIME = 
 CC = gcc
-CCDEPMODE = depmode=none
-CFLAGS = -Werror-implicit-function-declaration -O2 -Wno-system-headers -Wenum-conversion
-CFLAG_CURL_SYMBOL_HIDING = 
-CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-largefile' '--disable-debug' '--enable-optimize' '--disable-warnings' '--disable-curldebug' '--disable-symbol-hiding' '--enable-ares' '--disable-dependency-tracking' '--disable-http' '--disable-ldap' '--disable-ldaps' '--enable-proxy' '--disable-dict' '--disable-telnet' '--disable-pop3' '--disable-imap' '--disable-smb' '--disable-smtp' '--enable-gopher' '--enable-mqtt' '--enable-manual' '--disable-libcurl-option' '--enable-ipv6' '--enable-openssl-auto-load-config' '--disable-versioned-symbols' '--disable-threaded-resolver' '--enable-pthreads' '--disable-sspi' '--enable-crypto-auth' '--enable-ntlm-wb' '--enable-unix-sockets' '--disable-cookies' '--enable-socketpair' '--disable-http-auth' '--enable-doh' '--enable-mime' '--disable-dateparse' '--disable-netrc' '--enable-progress-meter' '--enable-dnsshuffle' '--disable-get-easy-options' '--enable-alt-svc' '--disable-hsts' '--enable-static' '--enable-fast-install'"
+CCDEPMODE = depmode=gcc3
+CFLAGS = -Werror-implicit-function-declaration -g -O0 -Wno-system-headers -Wenum-conversion -pthread
+CFLAG_CURL_SYMBOL_HIDING = -fvisibility=hidden
+CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-largefile' '--enable-debug' '--disable-optimize' '--disable-warnings' '--disable-curldebug' '--enable-symbol-hiding' '--enable-maintainer-mode' '--disable-ares' '--enable-dependency-tracking' '--enable-http' '--enable-file' '--enable-ldap' '--disable-ldaps' '--disable-rtsp' '--enable-proxy' '--enable-tftp' '--disable-imap' '--disable-smb' '--enable-smtp' '--enable-gopher' '--enable-libcurl-option' '--enable-openssl-auto-load-config' '--disable-versioned-symbols' '--disable-sspi' '--enable-crypto-auth' '--enable-ntlm-wb' '--enable-tls-srp' '--enable-unix-sockets' '--disable-cookies' '--disable-socketpair' '--disable-http-auth' '--disable-doh' '--disable-mime' '--enable-dateparse' '--enable-netrc' '--disable-progress-meter' '--enable-dnsshuffle' '--enable-get-easy-options' '--disable-alt-svc' '--enable-hsts' '--enable-static' '--enable-fast-install' '--enable-libgcc'"
 CPP = gcc -E
 CPPFLAGS = 
 CPPFLAG_CURL_STATICLIB = -DCURL_STATICLIB
 CURLVERSION = 7.78.0-DEV
 CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"
 CURL_CFLAG_EXTRAS = 
-CURL_DISABLE_DICT = 1
+CURL_DISABLE_DICT = 
 CURL_DISABLE_FILE = 
 CURL_DISABLE_FTP = 
 CURL_DISABLE_GOPHER = 
-CURL_DISABLE_HTTP = 1
+CURL_DISABLE_HTTP = 
 CURL_DISABLE_IMAP = 1
-CURL_DISABLE_LDAP = 1
+CURL_DISABLE_LDAP = 
 CURL_DISABLE_LDAPS = 1
 CURL_DISABLE_MQTT = 
-CURL_DISABLE_POP3 = 1
+CURL_DISABLE_POP3 = 
 CURL_DISABLE_PROXY = 
 CURL_DISABLE_RTSP = 1
 CURL_DISABLE_SMB = 1
-CURL_DISABLE_SMTP = 1
-CURL_DISABLE_TELNET = 1
+CURL_DISABLE_SMTP = 
+CURL_DISABLE_TELNET = 
 CURL_DISABLE_TFTP = 
 CURL_LT_SHLIB_VERSIONED_FLAVOUR = 
-CURL_NETWORK_AND_TIME_LIBS = 
-CURL_NETWORK_LIBS = 
+CURL_NETWORK_AND_TIME_LIBS = -lgcc
+CURL_NETWORK_LIBS = -lgcc
 CURL_WITH_MULTI_SSL = 
 CYGPATH_W = echo
 DEFAULT_SSL_BACKEND = no
@@ -299,17 +299,17 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 IPV6_ENABLED = 1
 LCOV = 
 LD = /usr/bin/ld -m elf_x86_64
-LDFLAGS = -L/usr/usr/lib64
-LIBCURL_LIBS = -lcares -lssl -lcrypto -lssl -lcrypto -lzstd -lz
-LIBCURL_NO_SHARED = -lcares  -lssl -lcrypto -lssl -lcrypto  -lzstd  -lz 
+LDFLAGS = 
+LIBCURL_LIBS = -lssl -lcrypto -lssl -lcrypto -lldap -llber -lzstd -lz -lgcc -pthread
+LIBCURL_NO_SHARED = -lssl -lcrypto -lssl -lcrypto  -lldap -llber -lzstd  -lz -lgcc  -pthread
 LIBOBJS = 
-LIBS = -lcares -lssl -lcrypto -lssl -lcrypto -lzstd -lz
+LIBS = -lssl -lcrypto -lssl -lcrypto -lldap -llber -lzstd -lz -lgcc
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
-MAINT = #
+MAINT = 
 MAKEINFO = ${SHELL} /github/curl/missing makeinfo
 MANIFEST_TOOL = :
 MANOPT = -man
@@ -345,9 +345,9 @@ SSL_BACKENDS = OpenSSL
 SSL_ENABLED = 1
 SSL_LIBS = -lssl -lcrypto 
 STRIP = strip
-SUPPORT_FEATURES = AsynchDNS HTTPS-proxy IPv6 Largefile NTLM SSL TLS-SRP UnixSockets libz zstd
-SUPPORT_PROTOCOLS = FILE FTP FTPS GOPHER GOPHERS MQTT TFTP
-USE_ARES = 1
+SUPPORT_FEATURES = AsynchDNS HSTS HTTPS-proxy IPv6 Largefile NTLM NTLM_WB SSL TLS-SRP UnixSockets libz zstd
+SUPPORT_PROTOCOLS = DICT FILE FTP FTPS GOPHER GOPHERS HTTP HTTPS LDAP MQTT POP3 POP3S SMTP SMTPS TELNET TFTP
+USE_ARES = 
 USE_BEARSSL = 
 USE_GNUTLS = 
 USE_HYPER = 
@@ -362,7 +362,7 @@ USE_NGTCP2 =
 USE_NGTCP2_CRYPTO_GNUTLS = 
 USE_NGTCP2_CRYPTO_OPENSSL = 
 USE_NSS = 
-USE_OPENLDAP = 
+USE_OPENLDAP = 1
 USE_QUICHE = 
 USE_RUSTLS = 
 USE_SCHANNEL = 
@@ -820,7 +820,7 @@ all: all-am
 
 .SUFFIXES:
 .SUFFIXES: .3 .html .pdf
-$(srcdir)/Makefile.in: # $(srcdir)/Makefile.am $(srcdir)/Makefile.inc $(am__configure_deps)
+$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(srcdir)/Makefile.inc $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -845,9 +845,9 @@ $(srcdir)/Makefile.inc $(am__empty):
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
-$(top_srcdir)/configure: # $(am__configure_deps)
+$(top_srcdir)/configure:  $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-$(ACLOCAL_M4): # $(am__aclocal_m4_deps)
+$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
 
