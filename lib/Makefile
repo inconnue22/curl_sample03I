@@ -364,7 +364,7 @@ libcurlu_la_OBJECTS = $(am_libcurlu_la_OBJECTS)
 libcurlu_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libcurlu_la_CFLAGS) \
 	$(CFLAGS) $(libcurlu_la_LDFLAGS) $(LDFLAGS) -o $@
-am_libcurlu_la_rpath =
+#am_libcurlu_la_rpath =
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -749,9 +749,9 @@ CC = gcc
 CCDEPMODE = depmode=none
 
 # This might hold -Werror
-CFLAGS = -g -fprofile-arcs -ftest-coverage -Werror-implicit-function-declaration -g -O0 -Wno-system-headers -Wenum-conversion 
+CFLAGS = -g -fprofile-arcs -ftest-coverage -Werror-implicit-function-declaration -O0 -Wno-system-headers -Wenum-conversion 
 CFLAG_CURL_SYMBOL_HIDING = -fvisibility=hidden
-CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-largefile' '--disable-libtool-lock' '--enable-silent-rules' '--enable-debug' '--disable-optimize' '--disable-warnings' '--enable-curldebug' '--enable-symbol-hiding' '--enable-maintainer-mode' '--enable-ares' '--disable-dependency-tracking' '--disable-http' '--enable-ldap' '--enable-ldaps' '--disable-proxy' '--enable-telnet' '--enable-pop3' '--enable-imap' '--disable-smb' '--enable-smtp' '--disable-mqtt' '--disable-manual' '--disable-libcurl-option' '--disable-ipv6' '--disable-openssl-auto-load-config' '--disable-versioned-symbols' '--disable-threaded-resolver' '--enable-verbose' '--disable-sspi' '--enable-crypto-auth' '--enable-ntlm-wb' '--disable-tls-srp' '--disable-cookies' '--disable-doh' '--disable-mime' '--enable-dateparse' '--disable-netrc' '--disable-progress-meter' '--disable-dnsshuffle' '--disable-get-easy-options' '--disable-alt-svc' '--enable-hsts' '--enable-hidden-symbols' '--enable-code-coverage' '--enable-static' '--enable-fast-install'"
+CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-largefile' '--disable-libtool-lock' '--enable-silent-rules' '--disable-optimize' '--disable-symbol-hiding' '--disable-hidden-symbols' '--disable-dependency-tracking' '--enable-http' '--disable-file' '--enable-ldap' '--enable-ldaps' '--enable-rtsp' '--enable-proxy' '--enable-dict' '--disable-telnet' '--enable-tftp' '--disable-pop3' '--enable-smb' '--enable-gopher' '--disable-mqtt' '--enable-manual' '--disable-ipv6' '--disable-threaded-resolver' '--enable-pthreads' '--disable-sspi' '--enable-crypto-auth' '--disable-ntlm-wb' '--enable-unix-sockets' '--enable-cookies' '--enable-http-auth' '--disable-doh' '--enable-mime' '--disable-dateparse' '--disable-netrc' '--enable-progress-meter' '--enable-get-easy-options' '--enable-alt-svc' '--disable-hsts' '--enable-hidden-symbols' '--enable-code-coverage' '--enable-fast-install'"
 CPP = gcc -E
 CPPFLAGS = -DNDEBUG
 CPPFLAG_CURL_STATICLIB = -DCURL_STATICLIB
@@ -759,20 +759,20 @@ CURLVERSION = 7.78.0-DEV
 CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"
 CURL_CFLAG_EXTRAS = 
 CURL_DISABLE_DICT = 
-CURL_DISABLE_FILE = 
+CURL_DISABLE_FILE = 1
 CURL_DISABLE_FTP = 
 CURL_DISABLE_GOPHER = 
-CURL_DISABLE_HTTP = 1
+CURL_DISABLE_HTTP = 
 CURL_DISABLE_IMAP = 
 CURL_DISABLE_LDAP = 
 CURL_DISABLE_LDAPS = 
 CURL_DISABLE_MQTT = 1
-CURL_DISABLE_POP3 = 
-CURL_DISABLE_PROXY = 1
-CURL_DISABLE_RTSP = 1
-CURL_DISABLE_SMB = 1
+CURL_DISABLE_POP3 = 1
+CURL_DISABLE_PROXY = 
+CURL_DISABLE_RTSP = 
+CURL_DISABLE_SMB = 
 CURL_DISABLE_SMTP = 
-CURL_DISABLE_TELNET = 
+CURL_DISABLE_TELNET = 1
 CURL_DISABLE_TFTP = 
 CURL_LT_SHLIB_VERSIONED_FLAVOUR = 
 CURL_NETWORK_AND_TIME_LIBS = -lgcov
@@ -812,9 +812,9 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 IPV6_ENABLED = 
 LCOV = lcov
 LD = /usr/bin/ld -m elf_x86_64
-LDFLAGS = -L/usr/usr/lib64
-LIBCURL_LIBS = -lcares -lssl -lcrypto -lssl -lcrypto -lldap -llber -lzstd -lz -lgcov
-LIBCURL_NO_SHARED = -lcares  -lssl -lcrypto -lssl -lcrypto  -lldap -llber -lzstd  -lz  -lgcov
+LDFLAGS = 
+LIBCURL_LIBS = -lssl -lcrypto -lssl -lcrypto -lldap -llber -lzstd -lz -lgcov
+LIBCURL_NO_SHARED = -lssl -lcrypto -lssl -lcrypto  -lldap -llber -lzstd  -lz  -lgcov
 LIBOBJS = 
 
 # Prevent LIBS from being used for all link targets
@@ -824,7 +824,7 @@ LIPO =
 LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
-MAINT = 
+MAINT = #
 MAKEINFO = ${SHELL} /github/curl/missing makeinfo
 MANIFEST_TOOL = :
 MANOPT = -man
@@ -860,9 +860,9 @@ SSL_BACKENDS = OpenSSL
 SSL_ENABLED = 1
 SSL_LIBS = -lssl -lcrypto 
 STRIP = strip
-SUPPORT_FEATURES = AsynchDNS Largefile NTLM SSL UnixSockets libz zstd
-SUPPORT_PROTOCOLS = DICT FILE FTP FTPS GOPHER GOPHERS IMAP IMAPS LDAP LDAPS POP3 POP3S SMTP SMTPS TELNET TFTP
-USE_ARES = 1
+SUPPORT_FEATURES = HSTS HTTPS-proxy Largefile NTLM SSL TLS-SRP UnixSockets alt-svc libz zstd
+SUPPORT_PROTOCOLS = DICT FTP FTPS GOPHER GOPHERS HTTP HTTPS IMAP IMAPS LDAP LDAPS RTSP SMB SMBS SMTP SMTPS TFTP
+USE_ARES = 
 USE_BEARSSL = 
 USE_GNUTLS = 
 USE_HYPER = 
@@ -981,8 +981,8 @@ EXTRA_DIST = Makefile.m32 config-win32.h config-win32ce.h           \
  setup-win32.h
 
 lib_LTLIBRARIES = libcurl.la
-#noinst_LTLIBRARIES = 
-noinst_LTLIBRARIES = libcurlu.la
+noinst_LTLIBRARIES = 
+#noinst_LTLIBRARIES = libcurlu.la
 
 # Specify our include paths here, and do it relative to $(top_srcdir) and
 # $(top_builddir), to ensure that these paths which belong to the library
@@ -1359,7 +1359,7 @@ all: curl_config.h
 
 .SUFFIXES:
 .SUFFIXES: .c .lo .o .obj
-$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(srcdir)/Makefile.inc $(am__configure_deps)
+$(srcdir)/Makefile.in: # $(srcdir)/Makefile.am $(srcdir)/Makefile.inc $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -1384,9 +1384,9 @@ $(srcdir)/Makefile.inc $(am__empty):
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
-$(top_srcdir)/configure:  $(am__configure_deps)
+$(top_srcdir)/configure: # $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
+$(ACLOCAL_M4): # $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
 
@@ -1397,7 +1397,7 @@ curl_config.h: stamp-h1
 stamp-h1: $(srcdir)/curl_config.h.in $(top_builddir)/config.status
 	@rm -f stamp-h1
 	cd $(top_builddir) && $(SHELL) ./config.status lib/curl_config.h
-$(srcdir)/curl_config.h.in:  $(am__configure_deps) 
+$(srcdir)/curl_config.h.in: # $(am__configure_deps) 
 	($(am__cd) $(top_srcdir) && $(AUTOHEADER))
 	rm -f stamp-h1
 	touch $@
@@ -4225,7 +4225,7 @@ distdir-am: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-#all-local:
+all-local:
 all-am: Makefile $(LTLIBRARIES) curl_config.h all-local
 installdirs:
 	for dir in "$(DESTDIR)$(libdir)"; do \
@@ -4980,7 +4980,7 @@ checksrc:
 	$(srcdir)/*.[ch] $(srcdir)/vauth/*.[ch] $(srcdir)/vtls/*.[ch] $(srcdir)/vquic/*.[ch] $(srcdir)/vssh/*.[ch])
 
 # for debug builds, we scan the sources on all regular make invokes
-all-local: checksrc
+#all-local: checksrc
 
 tidy:
 	$(TIDY) $(CSOURCES) $(TIDYFLAGS) -- $(AM_CPPFLAGS) $(CPPFLAGS) -DHAVE_CONFIG_H
