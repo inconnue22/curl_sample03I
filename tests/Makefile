@@ -240,31 +240,31 @@ AWK = gawk
 BLANK_AT_MAKETIME = 
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Werror-implicit-function-declaration -O0 -Wno-system-headers -Wenum-conversion -pthread
+CFLAGS = -Werror-implicit-function-declaration -g -O0 -Wno-system-headers -Wenum-conversion
 CFLAG_CURL_SYMBOL_HIDING = -fvisibility=hidden
-CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-debug' '--disable-optimize' '--enable-curldebug' '--disable-symbol-hiding' '--disable-hidden-symbols' '--disable-ares' '--enable-dependency-tracking' '--disable-http' '--disable-ftp' '--enable-file' '--enable-ldap' '--disable-tftp' '--enable-pop3' '--enable-imap' '--disable-smb' '--enable-smtp' '--enable-gopher' '--disable-mqtt' '--enable-manual' '--disable-libcurl-option' '--disable-ipv6' '--disable-openssl-auto-load-config' '--enable-verbose' '--enable-sspi' '--disable-crypto-auth' '--disable-unix-sockets' '--enable-cookies' '--disable-socketpair' '--enable-http-auth' '--disable-mime' '--disable-dateparse' '--disable-dnsshuffle' '--disable-get-easy-options' '--enable-alt-svc' '--enable-hidden-symbols' '--enable-static' '--enable-fast-install' '--enable-libgcc'"
+CONFIGURE_OPTIONS = " '--with-openssl' '--disable-shared' '--disable-largefile' '--disable-libtool-lock' '--enable-silent-rules' '--enable-debug' '--disable-optimize' '--disable-warnings' '--disable-curldebug' '--enable-maintainer-mode' '--enable-dependency-tracking' '--disable-http' '--disable-file' '--disable-ldap' '--enable-ldaps' '--disable-rtsp' '--disable-proxy' '--disable-dict' '--enable-telnet' '--enable-tftp' '--disable-imap' '--enable-smb' '--enable-smtp' '--enable-gopher' '--disable-mqtt' '--disable-manual' '--disable-libcurl-option' '--disable-ipv6' '--disable-versioned-symbols' '--disable-threaded-resolver' '--disable-verbose' '--enable-sspi' '--enable-crypto-auth' '--enable-ntlm-wb' '--disable-tls-srp' '--disable-unix-sockets' '--enable-cookies' '--disable-socketpair' '--enable-http-auth' '--enable-doh' '--disable-netrc' '--enable-progress-meter' '--disable-dnsshuffle' '--disable-get-easy-options' '--enable-alt-svc' '--enable-hsts' '--enable-fast-install' '--enable-libgcc'"
 CPP = gcc -E
 CPPFLAGS = 
 CPPFLAG_CURL_STATICLIB = -DCURL_STATICLIB
 CURLVERSION = 7.78.0-DEV
 CURL_CA_BUNDLE = "/etc/pki/tls/certs/ca-bundle.crt"
 CURL_CFLAG_EXTRAS = 
-CURL_DISABLE_DICT = 
-CURL_DISABLE_FILE = 
-CURL_DISABLE_FTP = 1
+CURL_DISABLE_DICT = 1
+CURL_DISABLE_FILE = 1
+CURL_DISABLE_FTP = 
 CURL_DISABLE_GOPHER = 
 CURL_DISABLE_HTTP = 1
-CURL_DISABLE_IMAP = 
-CURL_DISABLE_LDAP = 
-CURL_DISABLE_LDAPS = 
+CURL_DISABLE_IMAP = 1
+CURL_DISABLE_LDAP = 1
+CURL_DISABLE_LDAPS = 1
 CURL_DISABLE_MQTT = 1
 CURL_DISABLE_POP3 = 
-CURL_DISABLE_PROXY = 
+CURL_DISABLE_PROXY = 1
 CURL_DISABLE_RTSP = 1
-CURL_DISABLE_SMB = 1
+CURL_DISABLE_SMB = 
 CURL_DISABLE_SMTP = 
 CURL_DISABLE_TELNET = 
-CURL_DISABLE_TFTP = 1
+CURL_DISABLE_TFTP = 
 CURL_LT_SHLIB_VERSIONED_FLAVOUR = 
 CURL_NETWORK_AND_TIME_LIBS = -lgcc
 CURL_NETWORK_LIBS = -lgcc
@@ -289,7 +289,7 @@ GCOV =
 GREP = /usr/bin/grep
 HAVE_BROTLI = 
 HAVE_GNUTLS_SRP = 
-HAVE_LDAP_SSL = 1
+HAVE_LDAP_SSL = 
 HAVE_LIBZ = 1
 HAVE_OPENSSL_SRP = 1
 HAVE_PROTO_BSDSOCKET_H = 
@@ -304,16 +304,16 @@ IPV6_ENABLED =
 LCOV = 
 LD = /usr/bin/ld -m elf_x86_64
 LDFLAGS = 
-LIBCURL_LIBS = -lssl -lcrypto -lssl -lcrypto -lldap -llber -lzstd -lz -lgcc -pthread
-LIBCURL_NO_SHARED = -lssl -lcrypto -lssl -lcrypto  -lldap -llber -lzstd  -lz -lgcc  -pthread
+LIBCURL_LIBS = -lssl -lcrypto -lssl -lcrypto -lzstd -lz -lgcc
+LIBCURL_NO_SHARED = -lssl -lcrypto -lssl -lcrypto  -lzstd  -lz -lgcc 
 LIBOBJS = 
-LIBS = -lssl -lcrypto -lssl -lcrypto -lldap -llber -lzstd -lz -lgcc
+LIBS = -lssl -lcrypto -lssl -lcrypto -lzstd -lz -lgcc
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
-MAINT = #
+MAINT = 
 MAKEINFO = ${SHELL} /github/curl/missing makeinfo
 MANIFEST_TOOL = :
 MANOPT = -man
@@ -349,8 +349,8 @@ SSL_BACKENDS = OpenSSL
 SSL_ENABLED = 1
 SSL_LIBS = -lssl -lcrypto 
 STRIP = strip
-SUPPORT_FEATURES = AsynchDNS HTTPS-proxy Largefile SSL TLS-SRP libz zstd
-SUPPORT_PROTOCOLS = DICT FILE GOPHER GOPHERS IMAP IMAPS LDAP LDAPS POP3 POP3S SMTP SMTPS TELNET
+SUPPORT_FEATURES = Largefile NTLM SSL libz zstd
+SUPPORT_PROTOCOLS = FTP FTPS GOPHER GOPHERS POP3 POP3S SMB SMBS SMTP SMTPS TELNET TFTP
 USE_ARES = 
 USE_BEARSSL = 
 USE_GNUTLS = 
@@ -366,7 +366,7 @@ USE_NGTCP2 =
 USE_NGTCP2_CRYPTO_GNUTLS = 
 USE_NGTCP2_CRYPTO_OPENSSL = 
 USE_NSS = 
-USE_OPENLDAP = 1
+USE_OPENLDAP = 
 USE_QUICHE = 
 USE_RUSTLS = 
 USE_SCHANNEL = 
@@ -450,14 +450,14 @@ EXTRA_DIST = ftpserver.pl httpserver.pl secureserver.pl runtests.pl           \
  azure.pm appveyor.pm version-scan.pl options-scan.pl
 
 DISTCLEANFILES = configurehelp.pm
-BUILD_UNIT = 
+#BUILD_UNIT = 
 
 # we have two variables here to make sure DIST_SUBDIRS won't get 'unit'
 # added twice as then targets such as 'distclean' misbehave and try to
 # do things twice in that subdir at times (and thus fails).
-#BUILD_UNIT = unit
-DIST_UNIT = unit
-#DIST_UNIT = 
+BUILD_UNIT = unit
+#DIST_UNIT = unit
+DIST_UNIT = 
 SUBDIRS = certs data server libtest $(BUILD_UNIT)
 DIST_SUBDIRS = $(SUBDIRS) $(DIST_UNIT)
 PERLFLAGS = -I$(srcdir)
@@ -477,7 +477,7 @@ all: all-recursive
 
 .SUFFIXES:
 .SUFFIXES: .1 .html .pdf
-$(srcdir)/Makefile.in: # $(srcdir)/Makefile.am  $(am__configure_deps)
+$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -501,9 +501,9 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
-$(top_srcdir)/configure: # $(am__configure_deps)
+$(top_srcdir)/configure:  $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-$(ACLOCAL_M4): # $(am__aclocal_m4_deps)
+$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
 
@@ -672,7 +672,7 @@ distdir-am: $(DISTFILES)
 	done
 check-am: all-am
 check: check-recursive
-#all-local:
+all-local:
 all-am: Makefile all-local
 installdirs: installdirs-recursive
 installdirs-am:
@@ -836,7 +836,7 @@ checksrc:
 	cd server && $(MAKE) checksrc
 
 # for debug builds, we scan the sources on all regular make invokes
-all-local: checksrc
+#all-local: checksrc
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
